@@ -1,9 +1,12 @@
 # Gate1 Mision
 
+# Import movement dependencies
 import Movement
 
+# start mission logic
 def start():
 
+    print("Starting Gate1 mission")
     # Submerge the AUV to 2 feet
     Movement.submerge("2")
 
@@ -15,6 +18,8 @@ def start():
 
 
 """
+VERSION CONTROL:
+
 2- Fernando Ortiz 19/02/17
 Import of the class Movement and add of the first two functions
 

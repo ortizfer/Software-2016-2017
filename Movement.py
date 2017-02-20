@@ -26,6 +26,8 @@ def backward_at(speed):
 
 
 """
+VERSION CONTROL:
+
 2- Fernando Ortiz 19/02/17
 Created basic movement functions for the AUV to use in the missions
 
