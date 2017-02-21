@@ -62,6 +62,11 @@ def backward_at(speed, seconds):
         count += 1
 
 
+# Original movement for Gate2 mission
+def do_magic():
+    print("Doing a cool stunt")
+
+
 # Stop AUV
 def stop():
     print("stopping")
@@ -73,17 +78,19 @@ def stop():
         count += 1
 
 
-# Get depth
+# Get depth from the pressure sensor
 def get_depth():
     return 4.0
     # SerialCom.read0()
     # SerialCom.read1()
 
 
+# Align heading of the AUV
 def align():
     print("align check")
 
 
+# Get the direction (angle, vector) of where to move
 def get_direction():
     direction = Direction.make_direction(0, 0)
     return direction

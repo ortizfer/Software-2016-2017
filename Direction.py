@@ -1,8 +1,9 @@
+# Object class for the direction of a point
 class Direction(object):
     angle = -1
     vector = -1
 
-    # The class "constructor" - It's actually an initializer
+    # The class constructor
     def __init__(self, angle, vector):
         self.angle = angle
         self.vector = vector
