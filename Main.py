@@ -19,7 +19,7 @@ if firstRun:
 
     Line.start()
 
-elif not firstRun:
+if not firstRun:
 
     Gate2.start()
 

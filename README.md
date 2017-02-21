@@ -2,6 +2,8 @@
 Code for Proteus 2.0 Misions
 
 """
+4- Fernando Ortiz 21/02/17 11:09AM
+Documentation and implementation of Gate2 mission logic
 
 3- Fernando Ortiz 20/02/17 8:05PM
 Creation of SerialCom and Direction files, further implementation of gate1, line, main and movement files
