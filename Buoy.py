@@ -2,6 +2,7 @@
 
 
 def start():
+    redBuoy = True
     print("Starting Buoy mission")
     print("Exiting Buoy mission")
 
