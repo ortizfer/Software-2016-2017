@@ -1,19 +1,8 @@
 # Island Mision
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+def start():
+    print()
 
 
 """

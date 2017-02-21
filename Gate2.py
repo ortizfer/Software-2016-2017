@@ -1,20 +1,8 @@
-# Gate 2 Mision
+# Gate 2 Mission
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def start():
+    print()
 
 
 """
