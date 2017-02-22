@@ -19,6 +19,7 @@ def start():
 
     # move 10 feet then touch the Buoy
     if aligned:
+
         Movement.forward(10)
         Movement.bop_it()
         Movement.backward()
