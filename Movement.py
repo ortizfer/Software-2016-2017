@@ -95,8 +95,21 @@ def get_direction():
     direction = Direction.make_direction(0, 0)
     return direction
 
+
+# Function to touch the buoy
+def bop_it():
+    print("Touching the Buoy")
+
+
+# Listen the hydrophones
+def listen():
+    print("Listening for hydrophones")
+
 """
 VERSION CONTROL:
+
+4- Fernando Ortiz 22/02/17
+created additional functions listen and bop_it for logic on missions
 
 3- Fernando Ortiz 20/02/17
 Added more functions for the movement utilities

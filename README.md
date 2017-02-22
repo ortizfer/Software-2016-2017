@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+8-Fernando Ortiz 22/02/17 4:54PM
+created additional functions listen and bop_it for logic on missions
+
 7- Carlos J. Figueroa 2/22/2017 4:31pm
 Modified Timer class, removed redundant methods and properties.
 
