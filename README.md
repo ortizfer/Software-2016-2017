@@ -2,6 +2,8 @@
 Code for Proteus 2.0 Missions
 
 """
+16- 6- Fernando Ortiz 22/02/17 5:47PM
+FUnction left and right added in movement
 
 15- Sachy Romero 22/02/2017 5:38pm
 Exit algorithm and pass between the Buoys

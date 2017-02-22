@@ -63,6 +63,13 @@ def backward_at(speed, seconds):
         count += 1
 
 
+def left():
+    print("moving left")
+
+
+def right():
+    print("moving left")
+
 # Original movement for Gate2 mission
 def do_magic():
     print("Doing a cool stunt")
@@ -105,9 +112,13 @@ def bop_it():
 # Listen the hydrophones
 def listen():
     print("Listening for hydrophones")
+    Hydrophone.listen()
 
 """
 VERSION CONTROL:
+
+6- Fernando Ortiz 22/02/17
+FUnction left and right added
 
 5- Carlos J. Figueroa 22/02/2017 5:30pm
     Added hydrophone import.
