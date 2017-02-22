@@ -2,16 +2,14 @@ from abc import ABCMeta
 import time
 
 '''
-    When Timer is initialized it stores the current time as start time.
-    Calling resetTimer sets the startTime to the current time.
-    Calling endTimer takes the current time, stores it, and calculates the
-    difference between endTime and startTime.
+    When Timer is initialized it stores the current time as self.startTime.
+    Calling resetTimer sets the startTime to the current time and returns it.
+    Calling endTimer takes the current time, and calculates the difference.
 '''
+
 
 # noinspection PyPep8Naming
 class Timer:
-    __metaclass__ = ABCMeta
-
     def __init__(self):
         self.startTime = time.time()
 
@@ -25,15 +23,12 @@ class Timer:
     def getStartTime(self):
         return self.startTime
 
-    def getEndTime(self):
-        return self.endTime
-
-    def getTimeSpent(self):
-        return self.timeSpent
-
 
 '''
 VERSION CONTROL:
+
+3- Carlos J. Figueroa 2/22/2017 4:39pm
+    Updated documentation, removed meta class declaration.
 
 2- Carlos J. Figueroa 2/22/2017 4:29pm
     Removed redundant functions and properties.

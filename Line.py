@@ -1,12 +1,10 @@
 # Line Mission
 import Movement
 
-
 # Start Line mission logic
 def start():
 
     print("Starting Line mission")
-
     aligned = False
 
     direction = Movement.get_direction()
