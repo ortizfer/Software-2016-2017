@@ -1,7 +1,11 @@
 # Software-2016-2017
-Code for Proteus 2.0 Misions
+Code for Proteus 2.0 Missions
 
 """
+7- Carlos J. Figueroa 2/22/2017 4:31pm
+Modified Timer class, removed redundant methods and properties.
+
+
 6- Carlos J. Figueroa 2/22/2017 4:15pm
 Added Timer metaclass to project.
 
