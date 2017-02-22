@@ -14,8 +14,13 @@ class Timer:
 
     def __init__(self):
         self.startTime = time.time()
-        self.endTime = -1
-        self.timeSpent = -1
+
+    def resetTimer(self):
+        self.startTime = time.time()
+        return self.startTime
+
+    def endTimer(self):
+        return time.time() - self.startTime
 
     def getStartTime(self):
         return self.startTime
@@ -26,17 +31,12 @@ class Timer:
     def getTimeSpent(self):
         return self.timeSpent
 
-    def resetTimer(self):
-        self.startTime = time.time()
-        return self.startTime
-
-    def endTimer(self):
-        self.endTime = time.time()
-        self.timeSpent = self.endTime - self.startTime
-        return self.timeSpent
 
 '''
 VERSION CONTROL:
+
+2- Carlos J. Figueroa 2/22/2017 4:29pm
+    Removed redundant functions and properties.
 
 1- Carlos J. Figueroa 2/22/2017 4:15pm
     Initial commit, with original version of timer.
