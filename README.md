@@ -2,14 +2,16 @@
 Code for Proteus 2.0 Missions
 
 """
+9- Carlos J. Figueroa 22/02/2017 5:30pm
+Created function listen() at hydrophone and imported it to movement.
+
 8-Fernando Ortiz 22/02/17 4:54PM
 created additional functions listen and bop_it for logic on missions
 
-7- Carlos J. Figueroa 2/22/2017 4:31pm
+7- Carlos J. Figueroa 22/02/2017 4:31pm
 Modified Timer class, removed redundant methods and properties.
 
-
-6- Carlos J. Figueroa 2/22/2017 4:15pm
+6- Carlos J. Figueroa 22/02/2017 4:15pm
 Added Timer metaclass to project.
 
 5- Sachy Romero 21/02/17 4:25PM

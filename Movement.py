@@ -1,6 +1,7 @@
 # Class to control the movement of the AUV
 import time
 import Direction
+import Hydrophone
 # import SerialCom
 
 
@@ -107,6 +108,9 @@ def listen():
 
 """
 VERSION CONTROL:
+
+5- Carlos J. Figueroa 22/02/2017 5:30pm
+    Added hydrophone import.
 
 4- Fernando Ortiz 22/02/17
 created additional functions listen and bop_it for logic on missions
