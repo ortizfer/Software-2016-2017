@@ -2,6 +2,25 @@
 Code for Proteus 2.0 Missions
 
 """
+
+15- Sachy Romero 22/02/2017 5:38pm
+Exit algorithm and pass between the Buoys
+
+14- Sachy Romero 22/02/2017 5:38pm
+Touch Green Buoy
+
+13- Sachy Romero 22/02/2017 5:38pm
+Aligned with Green Buoy
+
+12- Sachy Romero 22/02/2017 5:38pm
+Moved backward to align with green Buoy
+
+11- Sachy Romero Rosado 22/02/2017 5:38pm
+Touch Red Buoy
+
+10- Sachy Romero 22/02/2017 5:38pm
+Aligned to Red Buoy
+
 9- Carlos J. Figueroa 22/02/2017 5:30pm
 Created function listen() at hydrophone and imported it to movement.
 
