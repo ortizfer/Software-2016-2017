@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Misions
 
 """
+6- Carlos J. Figueroa 2/22/2017 4:15pm
+Added Timer metaclass to project.
+
 5- Sachy Romero 21/02/17 4:25PM
 Added boolean variable for Buoy mission
 
