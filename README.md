@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+20- Carlos J. Figueroa 23/02/2017 4:42pm
+Added basic documentation for Main.py
+
 19- Carlos J. Figueroa 23/02/2017 4:28pm
 Added basic documentation for SerialCom.py
 
