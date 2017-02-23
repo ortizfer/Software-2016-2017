@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+21- Carlos J. Figueroa 23/02/2017 5:04pm
+Added basic documentation for Buoy.py
+
 20- Carlos J. Figueroa 23/02/2017 4:42pm
 Added basic some documentation for Main.py
 
