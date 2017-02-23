@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+18- Carlos J. Figueroa 23/02/2017 4:00pm
+Implemented do_magic() at Movement.py
+
 17 - Esteban 22/02/17
 Island code implementation
 
