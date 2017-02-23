@@ -40,7 +40,7 @@ print("Finished")
 VERSION CONTROL:
 
 4- Carlos J. Figueroa 23/02/2017 4:41pm
-Added basic documentation.
+Added some basic documentation.
 
 3- Fernando Ortiz 20/02/17
 Main implementation of all missions
