@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+19- Carlos J. Figueroa 23/02/2017 4:28pm
+Added basic documentation for SerialCom.py
+
 18- Carlos J. Figueroa 23/02/2017 4:00pm
 Implemented do_magic() at Movement.py
 

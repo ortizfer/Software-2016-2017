@@ -124,7 +124,7 @@ def listen():
 """
 VERSION CONTROL:
 
-7- Carlos J. Figueroa 23/02/2017 5:57pm
+7- Carlos J. Figueroa 23/02/2017 3:57pm
 Implemented the do_magic function. Added an angle parameter for left() and right()
 
 6- Fernando Ortiz 22/02/17
