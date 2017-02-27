@@ -38,7 +38,7 @@ def start():
 
         Movement.forward(10)
         Movement.bop_it()
-        Movement.backward()
+        Movement.backward(0)
 
     greenBuoy = True
     redBuoy = False
