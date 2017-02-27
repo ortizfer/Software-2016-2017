@@ -3,8 +3,9 @@ import Movement
 
 def start():
     print()
-    alignedTop = False
+    infront= Movement.listen()
     aligned = False
+
     while not aligned:
         #move
         infront = Movement.listen()
@@ -12,6 +13,7 @@ def start():
             aligned = True
     Movement.forward(10)
 
+    alignedTop = False
 
     while not alignedTop:
         Movement.align() #for error fixing (to be deleted afterwards)

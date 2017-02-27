@@ -15,6 +15,9 @@ import Movement
 
 
 def start():
+    _maxrangex= 500
+    _maxrangey= 300
+
     redBuoy = True
 
     direction = Movement.get_direction()
@@ -67,6 +70,9 @@ def start():
 
 """
 VERSION CONTROL:
+13- Sachy Romero 27/02/2017 12:28pm
+Added Maxrange X and Maxrange Y
+
 12- Carlos J. Figueroa 23/02/2017 5:01pm
 Added basic documentation. Added a naming convention suppressant(line 14).
 

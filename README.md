@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+13- Sachy Romero 27/02/2017 12:28pm
+Added Maxrange X and Maxrange Y
+
 21- Carlos J. Figueroa 23/02/2017 5:04pm
 Added basic documentation for Buoy.py
 
