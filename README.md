@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+14- Carlos J. Figueroa 28/02/2017 11:13am
+Added specific commands to SerialCom.py
+
 13- Sachy Romero 27/02/2017 12:28pm
 Added Maxrange X and Maxrange Y
 
