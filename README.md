@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+15- Carlos J. Figueroa 28/02/2017 11:55am
+Implemented HealthTest.py
+
 14- Carlos J. Figueroa 28/02/2017 11:13am
 Added specific commands to SerialCom.py
 
