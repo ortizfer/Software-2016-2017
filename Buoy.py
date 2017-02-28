@@ -1,7 +1,23 @@
 # Buoy Mission
 import Movement
 
+'''
+    The Buoy mission commences by  searching for  buoy's. The
+    buoys'  general  direction  is given by the  orange  line
+    marker. Once the buoys are detected, the sub will attempt
+    to bop the  red buoy, then  the green.  After both  buoys
+    have been touched,  the sub  will try to navigate between
+    them to begin searching for the next orange line marker.
+'''
+
+# noinspection PyPep8Naming
+# ^^^ Suppresses spelling warnings on camel-cased  variables.
+
+
 def start():
+    _maxrangex= 500
+    _maxrangey= 300
+
     redBuoy = True
 
     direction = Movement.get_direction()
@@ -10,7 +26,7 @@ def start():
     # Starting Buoy mission
     print("Starting Buoy mission")
 
-    while direction.angle== 0:
+    while direction.angle == 0:
         direction = Movement.get_direction()
 
     while not aligned:
@@ -24,8 +40,8 @@ def start():
         Movement.bop_it()
         Movement.backward()
 
-    greenBuoy= True
-    redBuoy= False
+    greenBuoy = True
+    redBuoy = False
     # aligning with green Buoy
 
     if greenBuoy:
@@ -34,7 +50,7 @@ def start():
 
         aligned = False
 
-    while direction.angle== 0:
+    while direction.angle == 0:
         direction = Movement.get_direction()
 
     while not aligned:
@@ -54,6 +70,12 @@ def start():
 
 """
 VERSION CONTROL:
+13- Sachy Romero 27/02/2017 12:28pm
+Added Maxrange X and Maxrange Y
+
+12- Carlos J. Figueroa 23/02/2017 5:01pm
+Added basic documentation. Added a naming convention suppressant(line 14).
+
 11- Sachy Romero 22/02/2017
 Exit algorithm and pass between the Buoys
 

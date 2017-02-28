@@ -63,16 +63,23 @@ def backward_at(speed, seconds):
         count += 1
 
 
-def left():
-    print("moving left")
+# Rotates the entered angles COUNTER-CLOCKWISE
+def left(angle):
+    print("moving left " + str(angle) + " degrees")
 
 
-def right():
-    print("moving left")
+# Rotates the entered angles CLOCKWISE
+def right(angle):
+    print("moving right " + str(angle) + " degrees")
 
-# Original movement for Gate2 mission
-def do_magic():
+
+# Original movement for Gate2 mission.
+# Currently moves in reverse for the specified time.
+def do_magic(seconds):
     print("Doing a cool stunt")
+    left(180)
+    backward(seconds)
+    right(180)
 
 
 # Stop AUV
@@ -117,11 +124,14 @@ def listen():
 """
 VERSION CONTROL:
 
+7- Carlos J. Figueroa 23/02/2017 3:57pm
+Implemented the do_magic function. Added an angle parameter for left() and right()
+
 6- Fernando Ortiz 22/02/17
 FUnction left and right added
 
 5- Carlos J. Figueroa 22/02/2017 5:30pm
-    Added hydrophone import.
+Added hydrophone import.
 
 4- Fernando Ortiz 22/02/17
 created additional functions listen and bop_it for logic on missions

@@ -1,49 +1,54 @@
-# Island Mision
+# Island Mission
 import Movement
-import Line
+
 def start():
     print()
-    inFront = Movement.listen()
+    infront= Movement.listen()
     aligned = False
+
     while not aligned:
         #move
-        inFront = Movement.listen()
-         if inFront == ?:
+        infront = Movement.listen()
+        if infront == "":
             aligned = True
     Movement.forward(10)
+
     alignedTop = False
 
-    while not alignedTop
-	if ():
-		Movement.move_right()
+    while not alignedTop:
+        Movement.align() #for error fixing (to be deleted afterwards)
 
+        # if :
+            #Movement.right()
 
-    elif ():
-		Movement.move_left()
+        #elif :
+           # Movement.left()
 
-         elif ():
-		Movement.move_back()
+        #elif ():
+           # Movement.move_back()
 
-	elif ():
-		Movement.move_front()
+        #elif ():
+            #Movement.move_front()
 
-	else
-		alignedTop = True
+        #else:
+           # alignedTop = True
 
-surface(100%)
+    Movement.surface(10)
 
-if (pressure == 0)
-	surface(0)
-
-
-return 0
-
+    if Movement.get_depth() == 0:
+        Movement.stop()
 
 
 
 
 """
 VERSION CONTROL:
+
+3 - Fernando Ortiz 22/02/17
+Commented possible collision code to be fixed
+
+2- Esteban 22/02/17
+Island code implementation
 
 1- Fernando Ortiz 17/02/17
 Initial Commit and creation of class.

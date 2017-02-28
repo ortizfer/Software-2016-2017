@@ -2,7 +2,25 @@
 Code for Proteus 2.0 Missions
 
 """
-16- 6- Fernando Ortiz 22/02/17 5:47PM
+13- Sachy Romero 27/02/2017 12:28pm
+Added Maxrange X and Maxrange Y
+
+21- Carlos J. Figueroa 23/02/2017 5:04pm
+Added basic documentation for Buoy.py
+
+20- Carlos J. Figueroa 23/02/2017 4:42pm
+Added basic some documentation for Main.py
+
+19- Carlos J. Figueroa 23/02/2017 4:28pm
+Added basic documentation for SerialCom.py
+
+18- Carlos J. Figueroa 23/02/2017 4:00pm
+Implemented do_magic() at Movement.py
+
+17 - Esteban 22/02/17
+Island code implementation
+
+16- Fernando Ortiz 22/02/17 5:47PM
 FUnction left and right added in movement
 
 15- Sachy Romero 22/02/2017 5:38pm

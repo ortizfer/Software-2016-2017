@@ -4,25 +4,33 @@ import Buoy
 import Gate2
 import Island
 
+'''
+Main Mission Logic.  Establishes  order of missions and calls each
+one correspondingly. Currently performed missions are: Gate1, Line
+Buoy, Line (again), Gate2, and Island.
+
+At the start, the  submarine submerges itself and moves forward to
+cross the first Gate. Next it aligns itself with the orange marker
+and moves forward until it detect the buoys. After  finishing  the
+buoy mission the submarine aligns itself with the last line marker
+and moves to find the second gate. Crossing the gate  the sub  can
+attempt  to  perform a stunt. Finally the  submarine  locates  the
+Island octagon with the hydrophones and surfaces.
+'''
+
 firstRun = True
 
 print("starting Process")
 Gate1.start()
-
 Line.start()
 
 if firstRun:
-
     firstRun = False
-
     Buoy.start()
-
     Line.start()
 
 if not firstRun:
-
     Gate2.start()
-
     Island.start()
 
 print("Finished")
@@ -30,6 +38,9 @@ print("Finished")
 
 """
 VERSION CONTROL:
+
+4- Carlos J. Figueroa 23/02/2017 4:41pm
+Added some basic documentation.
 
 3- Fernando Ortiz 20/02/17
 Main implementation of all missions
