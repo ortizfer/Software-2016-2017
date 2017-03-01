@@ -66,13 +66,22 @@ def writeDSPIC(command):
 def readPSENSE():
     return ser0.readLine()
 
+def writePSENSE(command):
+    ser0.write(command)
+
 
 def readIMU():
     return ser0.readLine()
 
+def writeIMU(command):
+    ser0.write(command)
+
 
 """
 VERSION CONTROL:
+
+6- Carlos J. Figueroa 01/03/2017 6:46pm
+Added write commands for IMU and PSENSE.
 
 5- Carlos J. Figueroa 28/02/2017 11:10am
 Commented generic read/write commands. Added read commands for

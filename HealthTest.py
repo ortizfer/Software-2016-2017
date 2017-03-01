@@ -16,8 +16,8 @@ def healthTest():
     # Each variable holds a True or False value depending on the systems diagnostics
     MSPFRONT = __healthMSPFRONT(hCall, xReply)
     MSPUP = __healthMSPUP(hCall, xReply)
-    PSENSE = __healthPSENSE()
-    IMU = __healthIMU()
+    PSENSE = __healthPSENSE(hCall, xReply)
+    IMU = __healthIMU(hCall, xReply)
     DSPIC = __healthDSPIC(hCall, xReply)
 
     ready = MSPFRONT and MSPUP and PSENSE and IMU and DSPIC
@@ -47,12 +47,14 @@ def __healthDSPIC(call, reply):
     return SerialCom.readDSPIC() == reply
 
 
-def __healthPSENSE():
-    return SerialCom.readPSENSE() != ""
+def __healthPSENSE(call, reply):
+    SerialCom.writePSENSE(call)
+    return SerialCom.readPSENSE() == reply
 
 
-def __healthIMU():
-    return SerialCom.readIMU() != ""
+def __healthIMU(call, reply):
+    SerialCom.writeIMU(call)
+    return SerialCom.readIMU() == reply
 
 
 # Raised if diagnostics detects an error
@@ -61,6 +63,8 @@ class HealthException(Exception):
 
 '''
 VERSION CONTROL:
+2- Carlos J. Figueroa 01/03/2017 6:47pm
+Modified IMU and PSENSE to send "HEALTH" and expect "OK"
 
 1- Carlos J. Figueroa 28/02/2017 11:56am
 Original  implementation and file creation. Includes

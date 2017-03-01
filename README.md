@@ -2,6 +2,10 @@
 Code for Proteus 2.0 Missions
 
 """
+16- Carlos J. Figueroa 01/03/2017 6:48pm
+Modified the HealthTest.py IMU and PSENSE diagnostics.
+Added at SerialCom.py write methods for IMU and PSENSE.
+
 15- Carlos J. Figueroa 28/02/2017 11:55am
 Implemented HealthTest.py
 
