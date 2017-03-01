@@ -121,8 +121,16 @@ def listen():
     print("Listening for hydrophones")
     Hydrophone.listen()
 
+
+# Checks if the sub is submerged
+def submerge_check():  # assuming get_depth returns bar and not feet
+    return get_depth() > 9000
+
+
 """
 VERSION CONTROL:
+8- Carlos J. Figueroa 01/03/2017 7:03pm
+Added submerge_check function.
 
 7- Carlos J. Figueroa 23/02/2017 3:57pm
 Implemented the do_magic function. Added an angle parameter for left() and right()

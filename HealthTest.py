@@ -1,4 +1,5 @@
 import SerialCom
+import Movement
 
 '''
     The HealthTest.py file  contains the method HealthTest()
@@ -19,12 +20,20 @@ def healthTest():
     PSENSE = __healthPSENSE(hCall, xReply)
     IMU = __healthIMU(hCall, xReply)
     DSPIC = __healthDSPIC(hCall, xReply)
+    submerged = Movement.submerge_check()
 
-    ready = MSPFRONT and MSPUP and PSENSE and IMU and DSPIC
+    ready = MSPFRONT and MSPUP and PSENSE and IMU and DSPIC and submerged
 
     if not ready:
         # passes dictionary as the exception message
-        error = {"MSPFRONT": MSPFRONT, "MSPUP": MSPUP, "PSENSE": PSENSE, "IMU": IMU, "DSPIC": DSPIC}
+        error = {
+            "MSPFRONT": MSPFRONT
+            , "MSPUP": MSPUP
+            , "PSENSE": PSENSE
+            , "IMU": IMU
+            , "DSPIC": DSPIC
+            , "Submerged": submerged
+        }
         raise HealthException(str(error))
 
     else:
@@ -63,6 +72,9 @@ class HealthException(Exception):
 
 '''
 VERSION CONTROL:
+3- Carlos J. Figueroa 01/03/2017 7:02pm
+Added a submersion check.
+
 2- Carlos J. Figueroa 01/03/2017 6:47pm
 Modified IMU and PSENSE to send "HEALTH" and expect "OK"
 

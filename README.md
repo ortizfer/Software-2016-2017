@@ -2,6 +2,10 @@
 Code for Proteus 2.0 Missions
 
 """
+17- Carlos J. Figueroa 01/03/2017 7:04pm
+Added a submersion check at Movement.py, used as
+part of diagnostics in HealthTest.py
+
 16- Carlos J. Figueroa 01/03/2017 6:48pm
 Modified the HealthTest.py IMU and PSENSE diagnostics.
 Added at SerialCom.py write methods for IMU and PSENSE.
