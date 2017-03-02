@@ -1,7 +1,11 @@
 # Class to control the movement of the AUV
 import time
-import Direction
-import Hydrophone
+
+from Missions import Direction
+
+from Missions import Hydrophone
+
+
 # import SerialCom
 
 

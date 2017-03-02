@@ -1,5 +1,4 @@
-import Timer
-import Log
+from Utils import Timer
 
 '''
     DOCUMENTATION NEEDED

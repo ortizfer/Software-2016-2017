@@ -1,10 +1,7 @@
-import Log
-import Gate1
-import Line
-import Buoy
-import Gate2
-import Island
-
+from Missions import Gate1
+from Missions import Gate2
+from Missions import Line
+from Utils import Log
 
 '''
 Main Mission Logic.  Establishes  order of missions and calls each

@@ -1,6 +1,7 @@
 # Line Mission
-import Movement
-import Log
+from Missions import Movement
+from Utils import Log
+
 
 # Start Line mission logic
 def start():

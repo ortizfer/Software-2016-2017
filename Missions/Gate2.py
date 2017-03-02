@@ -1,6 +1,7 @@
 # Gate 2 Mission
-import Movement
-import Log
+from Missions import Movement
+from Utils import Log
+
 
 # Start Gate2 mission logic
 def start():

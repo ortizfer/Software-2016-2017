@@ -1,5 +1,5 @@
-import SerialCom
-import Movement
+from Missions import Movement
+from Utils import SerialCom
 
 '''
     The HealthTest.py file  contains the method HealthTest()

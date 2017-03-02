@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+20- Fernando Ortiz 02/03/2017 9:35AM
+Organized Documents in folders and fixed imports in all classes
+
 19- Carlos J. Figueroa 01/03/2017 11:59pm
 Added System Logs calls, as well as necessary imports to:
 Main.py, Line.py, Gate1.py, and Gate2.py. Added datetime

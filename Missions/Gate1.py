@@ -1,8 +1,9 @@
-# Gate1 Mision
+# Gate1 Mission
 
-import Movement
 import time
-import Log
+
+from Missions import Movement
+from Utils import Log
 
 
 # start mission logic

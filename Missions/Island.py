@@ -1,5 +1,5 @@
 # Island Mission
-import Movement
+from Missions import Movement
 
 def start():
     print()
