@@ -1,12 +1,14 @@
-from Timer import *
+import Timer
+import Log
 
 '''
     DOCUMENTATION NEEDED
 '''
 
-__NavFile = file("")
-__ErrFile = file("")
-__SysFile = file("")
+mode = "w"
+__NavFile = open("Logs/dummy1", mode)
+__ErrFile = open("Logs/dummy2", mode)
+__SysFile = open("Logs/dummy3", mode)
 
 
 # noinspection PyPep8Naming
@@ -14,19 +16,22 @@ __SysFile = file("")
 # Initializes the files for the current. MUST be called calling any other function.
 def createLogs():
     # Creating necessary data
-    currDate = str(Timer.currDateTime())
+    currDate = Timer.Timer().currDateTime()
     extension = ".txt"
-    mode = "w"
 
     # Creating file names
-    navName = "NavLog_" + currDate + extension
-    errName = "ErrLog_" + currDate + extension
-    sysName = "SysLog_" + currDate + extension
+    navName = "Logs/NavLog_" + currDate + extension
+    errName = "Logs/ErrLog_" + currDate + extension
+    sysName = "Logs/SysLog_" + currDate + extension
 
     # Creating files
-    __NavFile = open(navName, mode)
-    __ErrFile = open(errName, mode)
-    __SysFile = open(sysName, mode)
+    Log.__NavFile.close()
+    Log.__ErrFile.close()
+    Log.__SysFile.close()
+
+    Log.__NavFile = open(navName, mode)
+    Log.__ErrFile = open(errName, mode)
+    Log.__SysFile = open(sysName, mode)
 
     # Adding names as header
     logNav(navName+"\n")
@@ -36,17 +41,17 @@ def createLogs():
 
 # Writes a new line to the Navigation Log
 def logNav(message):
-    __NavFile.write(message)
+    __NavFile.write(message + ": " + Timer.Timer().currDateTime())
 
 
 # Writes a new line to the Error Log
 def logErr(message):
-    __ErrFile.write(message)
+    __ErrFile.write(message + ": " + Timer.Timer().currDateTime())
 
 
 # Writes a new line to the System Log
 def logSys(message):
-    __SysFile.write(message)
+    __SysFile.write(message + ": " + Timer.Timer().currDateTime())
 
 
 # Closes all files
@@ -58,6 +63,8 @@ def closeLogs():
 
 '''
 VERSION CONTROL:
+2-  Carlos J. Figueroa 01/03/2017 11:15pm
+Added DateTime to log functions.
 
 1- Carlos J. Figueroa 01/03/2017 10:42pm
 Initial Commit:

@@ -25,23 +25,29 @@ Log.createLogs()
 firstRun = True
 
 print("starting Process")
+Log.logSys("Main.py: starting Process")
 Gate1.start()
 Line.start()
 
 if firstRun:
     firstRun = False
-    Buoy.start()
+    #Buoy.start()
     Line.start()
 
 if not firstRun:
     Gate2.start()
-    Island.start()
+    #Island.start()
 
 print("Finished")
+Log.logSys("Main.py: Finished")
+Log.closeLogs()
 
 
 """
 VERSION CONTROL:
+6- Carlos J. Figueroa 01/03/2017 11:11pm
+Added calls to System Log. Removed import Timer.
+
 
 5- Carlos J. Figueroa 01/03/2017 10:49pm
 Imported Log.py and added line to create logs.

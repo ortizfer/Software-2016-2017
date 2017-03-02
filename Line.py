@@ -1,10 +1,13 @@
 # Line Mission
 import Movement
+import Log
 
 # Start Line mission logic
 def start():
 
     print("Starting Line mission")
+    Log.logSys("Line.py: Starting Line mission")
+
     aligned = False
 
     direction = Movement.get_direction()
@@ -16,6 +19,7 @@ def start():
     # Align AUV with direction
     while not aligned:
         print("aligning with line")
+        Log.logSys("Line.py: Aligning with line")
         aligned = True
 
     # Move in aligned direction 40%
@@ -23,11 +27,14 @@ def start():
         Movement.forward(10)
 
     print("Exiting Line")
+    Log.logSys("Line.py: Exiting Line")
 
 
 
 """
 VERSION CONTROL:
+4-  Carlos J. Figueroa 01/03/2017 11:18pm
+Added calls to System Log.
 
 3- Fernando Ortiz 20/02/17
 Implementation of Line mission logic

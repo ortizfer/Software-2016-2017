@@ -2,10 +2,17 @@
 Code for Proteus 2.0 Missions
 
 """
+19- Carlos J. Figueroa 01/03/2017 11:59pm
+Added System Logs calls, as well as necessary imports to:
+Main.py, Line.py, Gate1.py, and Gate2.py. Added datetime
+to log entries in Log.py. Needs more work:
+Duplicates files, incorrect formatting, dummy files
+
 18- Carlos J. Figueroa 01/03/2017 10:51pm
 Initial commit for Log.py
 Imported Log and created logs in Main.py
 Modified Timer to better aid Log.py
+Calls broken, not commiting yet.
 
 17- Carlos J. Figueroa 01/03/2017 7:04pm
 Added a submersion check at Movement.py, used as
