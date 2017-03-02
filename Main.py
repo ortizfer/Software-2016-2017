@@ -1,8 +1,10 @@
+import Log
 import Gate1
 import Line
 import Buoy
 import Gate2
 import Island
+
 
 '''
 Main Mission Logic.  Establishes  order of missions and calls each
@@ -17,6 +19,8 @@ and moves to find the second gate. Crossing the gate  the sub  can
 attempt  to  perform a stunt. Finally the  submarine  locates  the
 Island octagon with the hydrophones and surfaces.
 '''
+
+Log.createLogs()
 
 firstRun = True
 
@@ -38,6 +42,9 @@ print("Finished")
 
 """
 VERSION CONTROL:
+
+5- Carlos J. Figueroa 01/03/2017 10:49pm
+Imported Log.py and added line to create logs.
 
 4- Carlos J. Figueroa 23/02/2017 4:41pm
 Added some basic documentation.

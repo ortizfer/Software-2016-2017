@@ -1,4 +1,4 @@
-from abc import ABCMeta
+import datetime
 import time
 
 '''
@@ -8,7 +8,7 @@ import time
 '''
 
 
-# noinspection PyPep8Naming
+# noinspection PyPep8Naming,PyMethodMayBeStatic
 class Timer:
     def __init__(self):
         self.startTime = time.time()
@@ -23,16 +23,22 @@ class Timer:
     def getStartTime(self):
         return self.startTime
 
+    def currDateTime(self):
+        return datetime.datetime.now()
+
 
 '''
 VERSION CONTROL:
+4- Carlos J. Figueroa 01/03/2017 10:13pm
+Modified previous VC entries with proper date format.
+Imported datetime; added currDateTime function.
 
-3- Carlos J. Figueroa 2/22/2017 4:39pm
-    Updated documentation, removed meta class declaration.
+3- Carlos J. Figueroa 22/02/2017 4:39pm
+Updated documentation, removed meta class declaration.
 
-2- Carlos J. Figueroa 2/22/2017 4:29pm
-    Removed redundant functions and properties.
+2- Carlos J. Figueroa 22/02/2017 4:29pm
+Removed redundant functions and properties.
 
-1- Carlos J. Figueroa 2/22/2017 4:15pm
-    Initial commit, with original version of timer.
+1- Carlos J. Figueroa 22/02/2017 4:15pm
+Initial commit, with original version of timer.
 '''
