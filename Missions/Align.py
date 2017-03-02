@@ -1,5 +1,5 @@
 def start():
-
+    x = 10;
     print()
 
 """
