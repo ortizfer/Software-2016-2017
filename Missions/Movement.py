@@ -130,6 +130,21 @@ def listen():
 def submerge_check():  # assuming get_depth returns bar and not feet
     return get_depth() > 9000
 
+# Return x or y axis position
+def getAngle(axis):
+    if(axis == "yaw"): # x axis
+        print("yaw")
+        return 0
+
+    if (axis == "pitch"): # y axis
+        print("pitch")
+        return 0
+    return 0
+
+# Distance from buoy
+def getDistance():
+    return 0
+
 
 """
 VERSION CONTROL:
