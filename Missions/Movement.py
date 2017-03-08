@@ -145,9 +145,28 @@ def getAngle(axis):
 def getDistance():
     return 0
 
+def moveUp(pitch):
+    return pitch + 10;
+
+def moveDown(pitch):
+    return pitch - 10;
+
+def moveLeft(yaw):
+    return yaw - 10;
+
+def moveRight(yaw):
+    return yaw + 10;
+
 
 """
 VERSION CONTROL:
+9- Felix Gonzalez 8/03/2017 1:23pm
+Added and partially implemented:
+    - moveUp
+    - moveDown
+    - moveLeft
+    - moveRight
+
 8- Carlos J. Figueroa 01/03/2017 7:03pm
 Added submerge_check function.
 
