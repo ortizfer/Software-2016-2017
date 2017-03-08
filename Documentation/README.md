@@ -2,6 +2,35 @@
 Code for Proteus 2.0 Missions
 
 """
+20- Fernando Ortiz 02/03/2017 9:35AM
+Organized Documents in folders and fixed imports in all classes
+
+19- Carlos J. Figueroa 01/03/2017 11:59pm
+Added System Logs calls, as well as necessary imports to:
+Main.py, Line.py, Gate1.py, and Gate2.py. Added datetime
+to log entries in Log.py. Needs more work:
+Duplicates files, incorrect formatting, dummy files
+
+18- Carlos J. Figueroa 01/03/2017 10:51pm
+Initial commit for Log.py
+Imported Log and created logs in Main.py
+Modified Timer to better aid Log.py
+Calls broken, not commiting yet.
+
+17- Carlos J. Figueroa 01/03/2017 7:04pm
+Added a submersion check at Movement.py, used as
+part of diagnostics in HealthTest.py
+
+16- Carlos J. Figueroa 01/03/2017 6:48pm
+Modified the HealthTest.py IMU and PSENSE diagnostics.
+Added at SerialCom.py write methods for IMU and PSENSE.
+
+15- Carlos J. Figueroa 28/02/2017 11:55am
+Implemented HealthTest.py
+
+14- Carlos J. Figueroa 28/02/2017 11:13am
+Added specific commands to SerialCom.py
+
 13- Sachy Romero 27/02/2017 12:28pm
 Added Maxrange X and Maxrange Y
 

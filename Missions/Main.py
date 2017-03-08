@@ -1,8 +1,7 @@
-import Gate1
-import Line
-import Buoy
-import Gate2
-import Island
+from Missions import Gate1
+from Missions import Gate2
+from Missions import Line
+from Utils import Log
 
 '''
 Main Mission Logic.  Establishes  order of missions and calls each
@@ -18,26 +17,37 @@ attempt  to  perform a stunt. Finally the  submarine  locates  the
 Island octagon with the hydrophones and surfaces.
 '''
 
+Log.createLogs()
+
 firstRun = True
 
 print("starting Process")
+Log.logSys("Main.py: starting Process")
 Gate1.start()
 Line.start()
 
 if firstRun:
     firstRun = False
-    Buoy.start()
+    #Buoy.start()
     Line.start()
 
 if not firstRun:
     Gate2.start()
-    Island.start()
+    #Island.start()
 
 print("Finished")
+Log.logSys("Main.py: Finished")
+Log.closeLogs()
 
 
 """
 VERSION CONTROL:
+6- Carlos J. Figueroa 01/03/2017 11:11pm
+Added calls to System Log. Removed import Timer.
+
+
+5- Carlos J. Figueroa 01/03/2017 10:49pm
+Imported Log.py and added line to create logs.
 
 4- Carlos J. Figueroa 23/02/2017 4:41pm
 Added some basic documentation.

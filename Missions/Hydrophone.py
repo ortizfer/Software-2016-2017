@@ -1,5 +1,5 @@
 # functions that listen to the hydrophone and create the object direction and returns it to movement
-import Direction
+from Missions import Direction
 
 
 def listen():

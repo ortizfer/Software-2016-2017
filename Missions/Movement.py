@@ -1,7 +1,11 @@
 # Class to control the movement of the AUV
 import time
-import Direction
-import Hydrophone
+
+from Missions import Direction
+
+from Missions import Hydrophone
+
+
 # import SerialCom
 
 
@@ -121,8 +125,50 @@ def listen():
     print("Listening for hydrophones")
     Hydrophone.listen()
 
+
+# Checks if the sub is submerged
+def submerge_check():  # assuming get_depth returns bar and not feet
+    return get_depth() > 9000
+
+# Return x or y axis position
+def getAngle(axis):
+    if(axis == "yaw"): # x axis
+        print("yaw")
+        return 0
+
+    if (axis == "pitch"): # y axis
+        print("pitch")
+        return 0
+    return 0
+
+# Distance from buoy
+def getDistance():
+    return 0
+
+def moveUp(pitch):
+    return pitch + 10;
+
+def moveDown(pitch):
+    return pitch - 10;
+
+def moveLeft(yaw):
+    return yaw - 10;
+
+def moveRight(yaw):
+    return yaw + 10;
+
+
 """
 VERSION CONTROL:
+9- Felix Gonzalez 8/03/2017 1:23pm
+Added and partially implemented:
+    - moveUp
+    - moveDown
+    - moveLeft
+    - moveRight
+
+8- Carlos J. Figueroa 01/03/2017 7:03pm
+Added submerge_check function.
 
 7- Carlos J. Figueroa 23/02/2017 3:57pm
 Implemented the do_magic function. Added an angle parameter for left() and right()

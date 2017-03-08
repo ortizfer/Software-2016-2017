@@ -1,5 +1,5 @@
 # Buoy Mission
-import Movement
+from Missions import Movement
 
 '''
     The Buoy mission commences by  searching for  buoy's. The

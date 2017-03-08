@@ -1,7 +1,9 @@
-# Gate1 Mision
+# Gate1 Mission
 
-import Movement
 import time
+
+from Missions import Movement
+from Utils import Log
 
 
 # start mission logic
@@ -10,6 +12,7 @@ def start():
     position = Movement.get_depth()
 
     print("Starting Gate1 mission")
+    Log.logSys("Gate1.py: Starting Gate1 mission")
     # Submerge the AUV to 4 feet
     Movement.submerge("4")
     time.sleep(4)
@@ -30,10 +33,13 @@ def start():
     # stop AUV
     Movement.stop()
     print("exiting Gate1")
+    Log.logSys("Gate1.py: exiting Gate1")
 
 
 """
 VERSION CONTROL:
+4- Carlos J. Figueroa 01/03/2017 11:20pm
+Added calls to System Log.
 
 3- Fernando Ortiz 20/02/17
 Finished implementation on Gate1 logic
