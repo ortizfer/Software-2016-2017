@@ -18,17 +18,21 @@ def start():
     while not alignedTop:
         Movement.align() #for error fixing (to be deleted afterwards)
 
-        # if :
-            #Movement.right()
+        # if -50<x<50 :
 
-        #elif :
-           # Movement.left()
+        #elif x>0:
+            #Movement.left()
 
-        #elif ():
-           # Movement.move_back()
+        #elif x<0:
+           # Movement.right()
 
-        #elif ():
-            #Movement.move_front()
+        # if -50<y<50 :
+
+        # elif y>0:
+           # Movement.move_front()
+
+        # elif y<0:
+            #Movement.move_back()
 
         #else:
            # alignedTop = True
