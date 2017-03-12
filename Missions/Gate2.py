@@ -9,15 +9,15 @@ def start():
     found_gate = False
     aligned = False
     print("Starting Gate2 mission")
-    Log.logSys("Gate2.py: Starting Gate2 mission")
+    Log.Logging.logSys("Gate2.py: Starting Gate2 mission")
 
     while not found_gate:
         print("Searching for gate")
-        Log.logSys("Gate2.py: Searching for gate")
+        Log.Logging.logSys("Gate2.py: Searching for gate")
         found_gate = True
     while not aligned:
         print("Aligning with gate")
-        Log.logSys("Gate2.py: Aligning with gate")
+        Log.Logging.logSys("Gate2.py: Aligning with gate")
         aligned = True
 
     # Move forward 40%
@@ -27,7 +27,7 @@ def start():
     Movement.do_magic(4)
 
     print("Exiting Gate2 mission")
-    Log.logSys("Gate2.py: Exiting Gate2 mission")
+    Log.Logging.logSys("Gate2.py: Exiting Gate2 mission")
 
 
 """

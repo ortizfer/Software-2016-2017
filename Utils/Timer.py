@@ -26,18 +26,21 @@ class Timer:
     def currDateTime(self):
         d = datetime.datetime.now()
         formattedDate = str(
-            "Y" + str(d.year) +
-            "M" + str(d.month) +
-            "D" + str(d.day) +
-            "_H" + str(d.hour) +
-            "M" + str(d.minute) +
-            "S" + str(d.second)
+            "Y_" + str(d.year) +
+            "_M_" + str(d.month) +
+            "_D_" + str(d.day) +
+            "_H_" + str(d.hour) +
+            "_M_" + str(d.minute) +
+            "_S_" + str(d.second)
         )
         return formattedDate
 
 
 '''
 VERSION CONTROL:
+5- Carlos J. Figueroa 11/03/2017 8:46pm
+Changed format of currDate.
+
 4- Carlos J. Figueroa 01/03/2017 11:35pm
 Modified previous VC entries with proper date format.
 Imported datetime; added currDateTime function.

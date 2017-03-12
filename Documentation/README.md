@@ -2,6 +2,11 @@
 Code for Proteus 2.0 Missions
 
 """
+21- Carlos J. Figueroa 11/03/2017 8:46pm
+Modified Logs and Timer, functioning as intended.
+Modified all files calling the log to use the new
+functions properly.
+
 20- Fernando Ortiz 02/03/2017 9:35AM
 Organized Documents in folders and fixed imports in all classes
 

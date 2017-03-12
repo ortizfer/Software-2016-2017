@@ -4,64 +4,108 @@ from Utils import Timer
     DOCUMENTATION NEEDED
 '''
 
-mode = "w"
-__NavFile = open("Logs/dummy1", mode)
-__ErrFile = open("Logs/dummy2", mode)
-__SysFile = open("Logs/dummy3", mode)
-
 
 # noinspection PyPep8Naming
+class Logging:
 
-# Initializes the files for the current. MUST be called calling any other function.
-def createLogs():
-    # Creating necessary data
-    currDate = Timer.Timer().currDateTime()
-    extension = ".txt"
+    __NavFile = open("..\\Logs\\dummy", "w")
+    __ErrFile = open("..\\Logs\\dummy", "w")
+    __SysFile = open("..\\Logs\\dummy", "w")
+    __currDate = Timer.Timer().currDateTime()
+    __navName = "NavLog_"
+    __errName = "ErrLog_"
+    __sysName = "SysLog_"
 
-    # Creating file names
-    navName = "Logs/NavLog_" + currDate + extension
-    errName = "Logs/ErrLog_" + currDate + extension
-    sysName = "Logs/SysLog_" + currDate + extension
+    # Initializes the files for the current. MUST be called calling any other function.
+    @staticmethod
+    def createLogs():
+        # Creating necessary data
 
-    # Creating files
-    Log.__NavFile.close()
-    Log.__ErrFile.close()
-    Log.__SysFile.close()
+        Logging.__currDate = Timer.Timer().currDateTime()
+        extension = ".txt"
+        directory = "..\\Logs\\"
 
-    Log.__NavFile = open(navName, mode)
-    Log.__ErrFile = open(errName, mode)
-    Log.__SysFile = open(sysName, mode)
+        # Creating file names
 
-    # Adding names as header
-    logNav(navName+"\n")
-    logErr(errName+"\n")
-    logSys(sysName+"\n")
+        Logging.__navName = directory + "NavLog_" + Logging.__currDate + extension
+        Logging.__errName = directory + "ErrLog_" + Logging.__currDate + extension
+        Logging.__sysName = directory + "SysLog_" + Logging.__currDate + extension
 
+        # Creating files
+        mode = "w"
+        Logging.__NavFile = open(Logging.__navName, mode)
+        Logging.__ErrFile = open(Logging.__errName, mode)
+        Logging.__SysFile = open(Logging.__sysName, mode)
 
-# Writes a new line to the Navigation Log
-def logNav(message):
-    __NavFile.write(message + ": " + Timer.Timer().currDateTime())
+        # Adding names as header
+        Logging.logNav(Logging.__navName+"\n")
+        Logging.logErr(Logging.__errName+"\n")
+        Logging.logSys(Logging.__sysName+"\n")
 
+        Logging.__closeLogs()
 
-# Writes a new line to the Error Log
-def logErr(message):
-    __ErrFile.write(message + ": " + Timer.Timer().currDateTime())
+    # Writes a new line to the Navigation Log
+    @staticmethod
+    def logNav(message):
+        Logging.__openNav()
+        Logging.__NavFile.seek(0, 2)
+        Logging.__NavFile.write(message + ": " + Timer.Timer().currDateTime() + "\n")
+        Logging.__closeNav()
 
+    # Writes a new line to the Error Log
+    @staticmethod
+    def logErr(message):
+        Logging.__openErr()
+        Logging.__ErrFile.seek(0, 2)
+        Logging.__ErrFile.write(message + ": " + Timer.Timer().currDateTime() + "\n")
+        Logging.__closeErr()
 
-# Writes a new line to the System Log
-def logSys(message):
-    __SysFile.write(message + ": " + Timer.Timer().currDateTime())
+    # Writes a new line to the System Log
+    @staticmethod
+    def logSys(message):
+        Logging.__openSys()
+        # Logging.__SysFile.seek(0, 2)
+        Logging.__SysFile.write(message + ": " + Timer.Timer().currDateTime() + "\n")
+        Logging.__closeSys()
 
+    # Closes all files
+    @staticmethod
+    def __closeLogs():
+        Logging.__NavFile.close()
+        Logging.__ErrFile.close()
+        Logging.__SysFile.close()
 
-# Closes all files
-def closeLogs():
-    __NavFile.close()
-    __ErrFile.close()
-    __SysFile.close()
+    @staticmethod
+    def __openNav():
+        Logging.__NavFile = open(Logging.__navName, "a")
+
+    @staticmethod
+    def __closeNav():
+        Logging.__NavFile.close()
+
+    @staticmethod
+    def __openErr():
+        Logging.__ErrFile = open(Logging.__errName, "a")
+
+    @staticmethod
+    def __closeErr():
+        Logging.__ErrFile.close()
+
+    @staticmethod
+    def __openSys():
+        Logging.__SysFile = open(Logging.__sysName, "a")
+
+    @staticmethod
+    def __closeSys():
+        Logging.__SysFile.close()
 
 
 '''
 VERSION CONTROL:
+3- Carlos J. Figueroa 11/03/2017 8:46pm
+Log correctly functioning. Added methods and variables within a class.
+Modified methods to work statically.
+
 2-  Carlos J. Figueroa 01/03/2017 11:15pm
 Added DateTime to log functions.
 

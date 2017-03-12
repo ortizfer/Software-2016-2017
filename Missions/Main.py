@@ -17,12 +17,12 @@ attempt  to  perform a stunt. Finally the  submarine  locates  the
 Island octagon with the hydrophones and surfaces.
 '''
 
-Log.createLogs()
+Log.Logging.createLogs()
 
 firstRun = True
 
 print("starting Process")
-Log.logSys("Main.py: starting Process")
+Log.Logging.logSys("Main.py: starting Process")
 Gate1.start()
 Line.start()
 
@@ -36,9 +36,7 @@ if not firstRun:
     #Island.start()
 
 print("Finished")
-Log.logSys("Main.py: Finished")
-Log.closeLogs()
-
+Log.Logging.logSys("Main.py: Finished")
 
 """
 VERSION CONTROL:

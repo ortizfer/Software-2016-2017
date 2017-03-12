@@ -7,7 +7,7 @@ from Utils import Log
 def start():
 
     print("Starting Line mission")
-    Log.logSys("Line.py: Starting Line mission")
+    Log.Logging.logSys("Line.py: Starting Line mission")
 
     aligned = False
 
@@ -20,7 +20,7 @@ def start():
     # Align AUV with direction
     while not aligned:
         print("aligning with line")
-        Log.logSys("Line.py: Aligning with line")
+        Log.Logging.logSys("Line.py: Aligning with line")
         aligned = True
 
     # Move in aligned direction 40%
@@ -28,8 +28,7 @@ def start():
         Movement.forward(10)
 
     print("Exiting Line")
-    Log.logSys("Line.py: Exiting Line")
-
+    Log.Logging.logSys("Line.py: Exiting Line")
 
 
 """

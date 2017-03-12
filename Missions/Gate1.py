@@ -12,7 +12,7 @@ def start():
     position = Movement.get_depth()
 
     print("Starting Gate1 mission")
-    Log.logSys("Gate1.py: Starting Gate1 mission")
+    Log.Logging.logSys("Gate1.py: Starting Gate1 mission")
     # Submerge the AUV to 4 feet
     Movement.submerge("4")
     time.sleep(4)
@@ -33,7 +33,7 @@ def start():
     # stop AUV
     Movement.stop()
     print("exiting Gate1")
-    Log.logSys("Gate1.py: exiting Gate1")
+    Log.Logging.logSys("Gate1.py: exiting Gate1")
 
 
 """
