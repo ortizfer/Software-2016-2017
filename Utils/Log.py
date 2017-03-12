@@ -103,7 +103,7 @@ class Logging:
 '''
 VERSION CONTROL:
 4- Carlos J. Figueroa 11/03/2017 9:14pm
-Modified the write functions to use the formattedDateTime from Timer.py.
+Modified write functions to use the formattedDateTime from Timer.py.
 
 3- Carlos J. Figueroa 11/03/2017 8:46pm
 Log correctly functioning. Added methods and variables within a class.
