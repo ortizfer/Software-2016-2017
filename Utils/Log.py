@@ -49,7 +49,7 @@ class Logging:
     def logNav(message):
         Logging.__openNav()
         Logging.__NavFile.seek(0, 2)
-        Logging.__NavFile.write(message + ": " + Timer.Timer().currDateTime() + "\n")
+        Logging.__NavFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeNav()
 
     # Writes a new line to the Error Log
@@ -57,7 +57,7 @@ class Logging:
     def logErr(message):
         Logging.__openErr()
         Logging.__ErrFile.seek(0, 2)
-        Logging.__ErrFile.write(message + ": " + Timer.Timer().currDateTime() + "\n")
+        Logging.__ErrFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeErr()
 
     # Writes a new line to the System Log
@@ -65,7 +65,7 @@ class Logging:
     def logSys(message):
         Logging.__openSys()
         # Logging.__SysFile.seek(0, 2)
-        Logging.__SysFile.write(message + ": " + Timer.Timer().currDateTime() + "\n")
+        Logging.__SysFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeSys()
 
     # Closes all files
@@ -102,6 +102,9 @@ class Logging:
 
 '''
 VERSION CONTROL:
+4- Carlos J. Figueroa 11/03/2017 9:14pm
+Modified write functions to use the formattedDateTime from Timer.py.
+
 3- Carlos J. Figueroa 11/03/2017 8:46pm
 Log correctly functioning. Added methods and variables within a class.
 Modified methods to work statically.

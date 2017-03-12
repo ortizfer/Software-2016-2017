@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+22- Carlos J. Figueroa 11/03/2017 9:15pm
+Modified Log and Timer to use better visually pleasing dateTime formats.
+
 21- Carlos J. Figueroa 11/03/2017 8:46pm
 Modified Logs and Timer, functioning as intended.
 Modified all files calling the log to use the new

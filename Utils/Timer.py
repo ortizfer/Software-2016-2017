@@ -35,9 +35,37 @@ class Timer:
         )
         return formattedDate
 
+    def formattedDateTime(self):
+        d = datetime.datetime.now()
+        a = [
+            str(d.day),
+            str(d.month),
+            str(d.year),
+            str(d.hour),
+            str(d.minute),
+            str(d.second)
+        ]
+        for i in range(0, len(a)):
+            if len(a[i]) < 2:
+                string = "0"
+                string = str(string + a[i])
+                a[i] = string
+
+        formattedDate = str(
+            a[0]+"/"+
+            a[1]+"/"+
+            a[2]+"_"+
+            a[3]+":"+
+            a[4]+":"+
+            a[5]
+        )
+        return formattedDate
 
 '''
 VERSION CONTROL:
+6- Carlos J. Figueroa 11/03/2017 9:14pm
+Added formatted time for log entries.
+
 5- Carlos J. Figueroa 11/03/2017 8:46pm
 Changed format of currDate.
 
