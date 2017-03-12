@@ -64,7 +64,7 @@ class Timer:
 '''
 VERSION CONTROL:
 6- Carlos J. Figueroa 11/03/2017 9:14pm
-Added formatted time for log entries.
+Added formatted time for Log.py entries.
 
 5- Carlos J. Figueroa 11/03/2017 8:46pm
 Changed format of currDate.
