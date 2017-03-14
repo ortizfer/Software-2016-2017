@@ -1,0 +1,4 @@
+../Logs/SysLog_Y_2017_M_3_D_14_H_10_M_48_S_10.txt
+: 14/03/2017_10:48:10
+Main.py: starting Process: 14/03/2017_10:48:10
+Gate1.py: Starting Gate1 mission: 14/03/2017_10:48:10
