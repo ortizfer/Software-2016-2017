@@ -52,7 +52,7 @@ class Logging:
         Logging.__openNav()
         Logging.__NavFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeNav()
-        print(message);
+        print(message)
 
     # Writes a new line to the Error Log
     @staticmethod
@@ -60,7 +60,7 @@ class Logging:
         Logging.__openErr()
         Logging.__ErrFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeErr()
-        print(message);
+        print(message)
 
     # Writes a new line to the System Log
     @staticmethod
@@ -68,7 +68,7 @@ class Logging:
         Logging.__openSys()
         Logging.__SysFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeSys()
-        print(message);
+        print(message)
 
     # Closes all files
     @staticmethod

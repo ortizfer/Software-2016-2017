@@ -1,5 +1,5 @@
-from Missions import Movement
 from Utils import SerialCom
+import time
 
 '''
     The HealthTest.py file  contains the method HealthTest()
@@ -20,9 +20,8 @@ def healthTest():
     PSENSE = __healthPSENSE(hCall, xReply)
     IMU = __healthIMU(hCall, xReply)
     DSPIC = __healthDSPIC(hCall, xReply)
-    submerged = Movement.submerge_check()
 
-    ready = MSPFRONT and MSPUP and PSENSE and IMU and DSPIC and submerged
+    ready = MSPFRONT and MSPUP and PSENSE and IMU and DSPIC
 
     if not ready:
         # passes dictionary as the exception message
@@ -32,11 +31,11 @@ def healthTest():
             , "PSENSE": PSENSE
             , "IMU": IMU
             , "DSPIC": DSPIC
-            , "Submerged": submerged
         }
         raise HealthException(str(error))
 
     else:
+        time.sleep(30)
         return ready
 
 
@@ -72,6 +71,9 @@ class HealthException(Exception):
 
 '''
 VERSION CONTROL:
+4- Carlos J. Figueroa 14/03/2017 10:21pm
+Removed submersion check, replaced with 30 second sleep.
+
 3- Carlos J. Figueroa 01/03/2017 7:02pm
 Added a submersion check.
 
