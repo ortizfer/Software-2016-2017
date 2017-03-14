@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+23- Juan G. Lastra Febles 14/03/2017 9.16 a.m
+Add documentation the program log and use a print function in the lof functions.
+
 22- Carlos J. Figueroa 11/03/2017 9:15pm
 Modified Log and Timer to use better visually pleasing dateTime formats.
 
