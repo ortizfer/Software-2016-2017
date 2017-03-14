@@ -10,9 +10,9 @@ from Utils import Timer
 # These program is to put the information and writes it to a log file
 class Logging:
 
-    __NavFile = open("..\\Logs\\dummy", "w")
-    __ErrFile = open("..\\Logs\\dummy", "w")
-    __SysFile = open("..\\Logs\\dummy", "w")
+    __NavFile = open("../Logs/dummy", "w")
+    __ErrFile = open("../Logs/dummy", "w")
+    __SysFile = open("../Logs/dummy", "w")
     __currDate = Timer.Timer().currDateTime()
     __navName = "NavLog_"
     __errName = "ErrLog_"
@@ -25,7 +25,7 @@ class Logging:
 
         Logging.__currDate = Timer.Timer().currDateTime()
         extension = ".txt"
-        directory = "..\\Logs\\"
+        directory = "../Logs/"
 
         # Creating file names
 
@@ -104,6 +104,9 @@ class Logging:
 
 '''
 VERSION CONTROL:
+6- Fernando Ortiz 14/02/2017
+Fixed path for windows and mac systems
+
 5- Juan G. Lastra Febles 14/03/2017
 Add a documentation in the program and put a print function to the log functions
 

@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+24- Fernando Ortiz 14/03/2017 10:52am
+fixed path for logs on multiple OS
+
 23- Juan G. Lastra Febles 14/03/2017 9.16 a.m
 Add documentation the program log and use a print function in the lof functions.
 
