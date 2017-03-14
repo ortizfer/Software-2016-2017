@@ -48,7 +48,6 @@ class Logging:
     @staticmethod
     def logNav(message):
         Logging.__openNav()
-        Logging.__NavFile.seek(0, 2)
         Logging.__NavFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeNav()
 
@@ -56,7 +55,6 @@ class Logging:
     @staticmethod
     def logErr(message):
         Logging.__openErr()
-        Logging.__ErrFile.seek(0, 2)
         Logging.__ErrFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeErr()
 
@@ -64,7 +62,6 @@ class Logging:
     @staticmethod
     def logSys(message):
         Logging.__openSys()
-        # Logging.__SysFile.seek(0, 2)
         Logging.__SysFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeSys()
 
