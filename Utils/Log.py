@@ -6,6 +6,8 @@ from Utils import Timer
 
 
 # noinspection PyPep8Naming
+
+# These program is to put the information and writes it to a log file
 class Logging:
 
     __NavFile = open("..\\Logs\\dummy", "w")
@@ -51,6 +53,7 @@ class Logging:
         Logging.__NavFile.seek(0, 2)
         Logging.__NavFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeNav()
+        print(message);
 
     # Writes a new line to the Error Log
     @staticmethod
@@ -59,6 +62,7 @@ class Logging:
         Logging.__ErrFile.seek(0, 2)
         Logging.__ErrFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeErr()
+        print(message);
 
     # Writes a new line to the System Log
     @staticmethod
@@ -67,6 +71,7 @@ class Logging:
         # Logging.__SysFile.seek(0, 2)
         Logging.__SysFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
         Logging.__closeSys()
+        print(message);
 
     # Closes all files
     @staticmethod
@@ -102,6 +107,9 @@ class Logging:
 
 '''
 VERSION CONTROL:
+5- Juan G. Lastra Febles 14/03/2017
+Add a documentation in the program and put a print function to the log functions
+
 4- Carlos J. Figueroa 11/03/2017 9:14pm
 Modified write functions to use the formattedDateTime from Timer.py.
 
