@@ -123,7 +123,7 @@ def bop_it():
 # Listen the hydrophones
 def listen():
     print("Listening for hydrophones")
-    Hydrophone.listen()
+    return Hydrophone.listen()
 
 
 # Checks if the sub is submerged
