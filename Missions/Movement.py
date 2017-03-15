@@ -145,6 +145,7 @@ def getAngle(axis):
 def getDistance():
     return 0
 
+#Align commands with picture data
 def moveUp(pitch):
     return pitch + 10;
 
