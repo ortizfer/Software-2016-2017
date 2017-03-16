@@ -1,0 +1,13 @@
+Sample rate - fixed version 2
+
+Testing 60ms delay 16Hz
+at t = 0, 154
+at t = 60, 1161
+
+true frequency: 16.78  Hz
+
+Testing 50 ms delay 20 Hz
+at t = 0, 12
+at t = 60, 1223 
+
+true frequency 20.18 Hz

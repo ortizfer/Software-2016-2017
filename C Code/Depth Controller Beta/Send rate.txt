@@ -1,0 +1,18 @@
+testing 50Hz - 20ms Period
+116 at 0s
+2120 at 60s
+
+true Hz = 33.4
+
+
+testing 20 Hz - 50 ms period
+2296 at 0s
+2788 at 30s
+
+true Hz = 16.4
+
+testing 10 Hz - 100ms period
+51 at t = 0z
+752 at t = 75s
+
+true Hz = 9.333 Hz 
