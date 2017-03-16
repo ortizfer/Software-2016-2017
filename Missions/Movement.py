@@ -6,33 +6,59 @@ from Missions import Direction
 from Missions import Hydrophone
 
 
-# import SerialCom
+from Utils import SerialCom
+from Utils import Parser
+
+commands = {
+    "depth": 'o',
+    "alignment": 'a',
+    "exit": 'x',
+    "forward": 'f',
+    "backward": 'b',
+    "HCw": 'w',
+    "HCa": 'a',
+    "HCs": 's',
+    "HCd": 'd',
+    "printUser": 't',
+    "printScript": 'y'
+}
+
+
 
 
 # Submerge the AUV to the desired depth
 def submerge(depth):
     print("submerging to: " + depth)
-    # SerialCom.write0(depth)
-    # SerialCom.write1(depth)
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPUP(commands["depth"])
+        feedback = Parser.p_slice(SerialCom.readMSPUP())
+
+    SerialCom.writeMSPUP(depth)
+    feedback = SerialCom.readMSPUP()
 
 
 # Surface de desired feet
 def surface(depth):
     print("going up: " + depth + " feet")
-    # SerialCom.write0(depth)
-    # SerialCom.write1(depth)
+    SerialCom.writeMSPUP(depth)
+    feedback = SerialCom.readMSPUP()
 
 
 # Move forward at a base 40% speed
 def forward(seconds):
     print("moving at: 40%")
-    # SerialCom.write0()
-    # SerialCom.write1()
+    SerialCom.writeMSPFRONT(seconds)
+    feedback = SerialCom.readMSPFRONT()
+
+'''
     count = 0
     while count < seconds:
         time.sleep(1)
         align()
         count += 1
+'''
+
 
 
 # Move forward at the desired speed
@@ -48,14 +74,15 @@ def forward_at(speed, seconds):
 # Move backward at a base 40% speed
 def backward(seconds):
     print("Backing up at: 40%")
-    # SerialCom.write0()
-    # SerialCom.write1()
+    SerialCom.writeMSPFRONT(seconds)
+    feedback = SerialCom.readMSPFRONT()
+'''
     count = 0
     while count < seconds:
         time.sleep(1)
         align()
         count += 1
-
+'''
 
 # Move backward at the desired speed speed
 def backward_at(speed, seconds):
@@ -161,6 +188,9 @@ def moveRight(yaw):
 
 """
 VERSION CONTROL:
+10 - Juan G. Lastra Febles and Carlos J. Figueroa 14/03/2017 8:30 P.M
+Changed and edited the SerialCom write and read for the submerged, surface, front, up and back functions
+
 9- Felix Gonzalez 8/03/2017 1:23pm
 Added and partially implemented:
     - moveUp

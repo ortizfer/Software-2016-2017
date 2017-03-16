@@ -69,7 +69,6 @@ def readPSENSE():
 def writePSENSE(command):
     ser0.write(command)
 
-
 def readIMU():
     return ser0.readLine()
 
