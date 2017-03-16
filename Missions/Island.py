@@ -6,6 +6,7 @@ def start():
     infront= Movement.listen()
     aligned = False
 
+
     while not aligned:
         #move
         infront = Movement.listen()
@@ -16,26 +17,33 @@ def start():
     alignedTop = False
 
     while not alignedTop:
-        Movement.align() #for error fixing (to be deleted afterwards)
+        direction = Movement.listen()
+        x = direction.angle
+        y = direction.vector
 
-        # if -50<x<50 :
 
-        #elif x>0:
-            #Movement.left()
+        if -50 < x < 50:
+            print()
+            x=0
 
-        #elif x<0:
-           # Movement.right()
+        elif x > 0:
+            Movement.left()
 
-        # if -50<y<50 :
+        elif x < 0:
+            Movement.right()
 
-        # elif y>0:
-           # Movement.move_front()
+        if -50 < y < 50:
+            print()
+            y=0
 
-        # elif y<0:
-            #Movement.move_back()
+        elif y > 0:
+            Movement.move_front()
 
-        #else:
-           # alignedTop = True
+        elif y < 0:
+            Movement.move_back()
+
+        else:
+            alignedTop = True
 
     Movement.surface(10)
 
@@ -47,6 +55,12 @@ def start():
 
 """
 VERSION CONTROL:
+
+5- Esteban Lopez 15/03/17
+definicion de x y, arreglar pal de cosas de movement
+
+4- Esteban Lopez 08/03/17
+ifs
 
 3 - Fernando Ortiz 22/02/17
 Commented possible collision code to be fixed
