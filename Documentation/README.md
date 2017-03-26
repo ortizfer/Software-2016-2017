@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+25- Fernando Ortiz 27/03/2017 3:00PM
+Added first vision codes for further integration with missions
+
 24- Fernando Ortiz 14/03/2017 10:52am
 fixed path for logs on multiple OS
 
