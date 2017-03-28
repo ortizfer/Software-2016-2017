@@ -27,22 +27,17 @@ commands = {
 
 
 # Submerge the AUV to the desired depth
-def submerge(depth):
-    print("submerging to: " + depth)
+def depth(extent):
+    print("submerging to: " + extent)
     feedback = 'i'
     while feedback != 'f':
         SerialCom.writeMSPUP(commands["depth"])
         feedback = Parser.p_slice(SerialCom.readMSPUP())
 
-    SerialCom.writeMSPUP(depth)
+    SerialCom.writeMSPUP(extent)
     feedback = SerialCom.readMSPUP()
 
 
-# Surface de desired feet
-def surface(depth):
-    print("going up: " + depth + " feet")
-    SerialCom.writeMSPUP(depth)
-    feedback = SerialCom.readMSPUP()
 
 
 # Move forward at a base 40% speed

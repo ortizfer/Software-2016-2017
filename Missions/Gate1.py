@@ -14,17 +14,17 @@ def start():
     print("Starting Gate1 mission")
     Log.Logging.logSys("Gate1.py: Starting Gate1 mission")
     # Submerge the AUV to 4 feet
-    Movement.submerge("4")
+    Movement.depth("4")
     time.sleep(4)
     while position > 5 or position < 3:
         if position > 5:
 
-            Movement.surface("x")
+            Movement.depth("x")
             time.sleep(4)
 
         elif position < 3:
 
-            Movement.submerge("x")
+            Movement.depth("x")
             time.sleep(4)
         position = Movement.get_depth()
 

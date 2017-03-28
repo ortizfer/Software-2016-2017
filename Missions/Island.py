@@ -45,7 +45,7 @@ def start():
         else:
             alignedTop = True
 
-    Movement.surface(10)
+    Movement.depth(10)
 
     if Movement.get_depth() == 0:
         Movement.stop()
