@@ -1,4 +1,5 @@
 from Utils import Timer
+from Utils import StringOperations
 
 '''
     DOCUMENTATION NEEDED
@@ -10,28 +11,40 @@ from Utils import Timer
 # These program is to put the information and writes it to a log file
 class Logging:
 
+    # Pointers to the corresponding Log files
     __NavFile = open("../Logs/dummy", "w")
     __ErrFile = open("../Logs/dummy", "w")
     __SysFile = open("../Logs/dummy", "w")
-    __currDate = Timer.Timer().currDateTime()
+
+    # Strings corresponding the Log names
     __navName = "NavLog_"
     __errName = "ErrLog_"
     __sysName = "SysLog_"
 
-    # Initializes the files for the current. MUST be called calling any other function.
+    # Current datetime
+    __currDate = Timer.getTime()
+
+    # Amount of characters per log entry, excluding timestamp
+    __correction = 25
+
+    # Character used as spacer in log entries
+    __spacer = '.'
+
+    # Initializes the files for the current. MUST be called before calling any other function.
     @staticmethod
     def createLogs():
         # Creating necessary data
 
-        Logging.__currDate = Timer.Timer().currDateTime()
+        Logging.__currDate = Timer.getTime()
         extension = ".txt"
         directory = "../Logs/"
+        headerDecals = "-=-=-=-=-=-=-=-=-=-=-=-"
 
         # Creating file names
 
-        Logging.__navName = directory + "NavLog_" + Logging.__currDate + extension
-        Logging.__errName = directory + "ErrLog_" + Logging.__currDate + extension
-        Logging.__sysName = directory + "SysLog_" + Logging.__currDate + extension
+        Logging.__navName = directory + "NavLog_" + Timer.FileDateTime(Logging.__currDate) + extension
+        Logging.__errName = directory + "ErrLog_" + Timer.FileDateTime(Logging.__currDate) + extension
+        Logging.__sysName = directory + "SysLog_" + Timer.FileDateTime(Logging.__currDate) + extension
 
         # Creating files
         mode = "w"
@@ -40,9 +53,9 @@ class Logging:
         Logging.__SysFile = open(Logging.__sysName, mode)
 
         # Adding names as header
-        Logging.logNav(Logging.__navName+"\n")
-        Logging.logErr(Logging.__errName+"\n")
-        Logging.logSys(Logging.__sysName+"\n")
+        Logging.logNav(headerDecals + Logging.__navName + headerDecals + "\n")
+        Logging.logErr(headerDecals + Logging.__errName + headerDecals + "\n")
+        Logging.logSys(headerDecals + Logging.__sysName + headerDecals + "\n")
 
         Logging.__closeLogs()
 
@@ -50,7 +63,9 @@ class Logging:
     @staticmethod
     def logNav(message):
         Logging.__openNav()
-        Logging.__NavFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
+        Logging.__NavFile.write(
+            StringOperations.extendString(message, Logging.__spacer, Logging.__correction, 1) +
+            Timer.LogDateTime(Timer.getTime()) + "\n")
         Logging.__closeNav()
         print(message)
 
@@ -58,7 +73,9 @@ class Logging:
     @staticmethod
     def logErr(message):
         Logging.__openErr()
-        Logging.__ErrFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
+        Logging.__ErrFile.write(
+            StringOperations.extendString(message, Logging.__spacer, Logging.__correction, 1) +
+            Timer.LogDateTime(Timer.getTime()) + "\n")
         Logging.__closeErr()
         print(message)
 
@@ -66,7 +83,9 @@ class Logging:
     @staticmethod
     def logSys(message):
         Logging.__openSys()
-        Logging.__SysFile.write(message + ": " + Timer.Timer().formattedDateTime() + "\n")
+        Logging.__SysFile.write(
+            StringOperations.extendString(message, Logging.__spacer, Logging.__correction, 1) +
+            Timer.LogDateTime(Timer.getTime()) + "\n")
         Logging.__closeSys()
         print(message)
 
@@ -104,6 +123,12 @@ class Logging:
 
 '''
 VERSION CONTROL:
+7- Carlos J. Figueroa 01/04/2017 3:18pm
+Added decals to Log headers. Modified each logs write function
+to use correct to 10 characters per message, excluding the
+timestamp. Currently uses '.' as the spacer. this can be
+configured.
+
 6- Fernando Ortiz 14/02/2017
 Fixed path for windows and mac systems
 
