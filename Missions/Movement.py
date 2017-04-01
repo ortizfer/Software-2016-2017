@@ -57,10 +57,14 @@ def align(Angle) :
 # Move forward at a base 40% speed
 def forward(seconds):
     print("moving at: 40%")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands["forward"])
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.readMSPFRONT())
     SerialCom.writeMSPFRONT(seconds)
     time.sleep(0.5)
     feedback = SerialCom.readMSPFRONT()
-
 '''
     count = 0
     while count < seconds:
@@ -68,22 +72,16 @@ def forward(seconds):
         align()
         count += 1
 '''
-
-
-
-# Move forward at the desired speed
-def forward_at(speed, seconds):
-    print("moving at: " + speed)
-    count = 0
-    while count < seconds:
-        time.sleep(1)
-        align()
-        count += 1
 
 
 # Move backward at a base 40% speed
 def backward(seconds):
     print("Backing up at: 40%")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands ['backwards'])
+        time.sleep(0.5)
+        feedback =Parser.p_slice(SerialCom.readMSPFRONT())
     SerialCom.writeMSPFRONT(seconds)
     time.sleep(0.5)
     feedback = SerialCom.readMSPFRONT()
@@ -94,16 +92,6 @@ def backward(seconds):
         align()
         count += 1
 '''
-
-# Move backward at the desired speed speed
-def backward_at(speed, seconds):
-    print("Backing up at: " + speed)
-    count = 0
-    while count < seconds:
-        time.sleep(1)
-        align()
-        count += 1
-
 
 # Rotates the entered angles COUNTER-CLOCKWISE
 def left(angle):
@@ -125,14 +113,17 @@ def do_magic(seconds):
 
 
 # Stop AUV
-def stop():
+def stop(seconds):
     print("stopping")
-    seconds = 10
-    count = 0
-    while count < seconds:
-        time.sleep(1)
-        align()
-        count += 1
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands['exit'])
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
+
+    SerialCom.writeMSPFRONT(seconds)
+    time.sleep(0.5)
+    feedback = SerialCom.readMSPFRONT()
 
 
 # Get depth from the pressure sensor
@@ -195,6 +186,9 @@ def moveRight(yaw):
 
 """
 VERSION CONTROL:
+11 - Juan G.Lastra and Estaban Lopez 1/04/2017 6:10 P.M
+Alterated the forward, badkward and stop functions and eliminated forward a and backward a.
+
 10 - Juan G. Lastra Febles and Carlos J. Figueroa 14/03/2017 8:30 P.M
 Changed and edited the SerialCom write and read for the submerged, surface, front, up and back functions
 

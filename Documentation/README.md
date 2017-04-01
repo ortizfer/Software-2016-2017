@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+26 -Juan G.Lastra and Estaban Lopez 1/04/2017 6:10 P.M
+Alterated the forward, badkward and stop functions and eliminated forward a and backward a.
+
 25- Fernando Ortiz 27/03/2017 3:00PM
 Added first vision codes for further integration with missions
 
