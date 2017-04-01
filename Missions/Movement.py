@@ -34,18 +34,30 @@ def depth(extent):
     feedback = 'i'
     while feedback != 'f':
         SerialCom.writeMSPUP(commands["depth"])
+        time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPUP())
 
     SerialCom.writeMSPUP(extent)
+    time.sleep(0.5)
     feedback = SerialCom.readMSPUP()
 
+def align(Angle) :
+    print("Alignment")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPUPFRONT(commands["aligment"])
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
 
-
+    SerialCom.writeMSPFRONT(Angle)
+    time.sleep(0.5)
+    feedback = SerialCom.readMSPFRONT()
 
 # Move forward at a base 40% speed
 def forward(seconds):
     print("moving at: 40%")
     SerialCom.writeMSPFRONT(seconds)
+    time.sleep(0.5)
     feedback = SerialCom.readMSPFRONT()
 
 '''
@@ -72,6 +84,7 @@ def forward_at(speed, seconds):
 def backward(seconds):
     print("Backing up at: 40%")
     SerialCom.writeMSPFRONT(seconds)
+    time.sleep(0.5)
     feedback = SerialCom.readMSPFRONT()
 '''
     count = 0

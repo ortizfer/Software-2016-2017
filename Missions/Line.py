@@ -30,8 +30,8 @@ def start():
         if Angle > 10 or Angle < -10:
             # Angle is valid for alignment if is under 360 degree
             if not Angle > 360:
-                print("Aligning")
-                #SerialCom.writeMSPFRONT(Angle)
+                #print("Aligning")
+                Movement.align(Angle)
         else :
             aligned = True
 
