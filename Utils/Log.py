@@ -1,5 +1,6 @@
 from Utils import Timer
 from Utils import StringOperations
+from GUI import v3
 
 '''
     DOCUMENTATION NEEDED
@@ -67,6 +68,7 @@ class Logging:
             StringOperations.extendString(message, Logging.__spacer, Logging.__correction, 1) +
             Timer.LogDateTime(Timer.getTime()) + "\n")
         Logging.__closeNav()
+        v3.sendMessage(message)
         print(message)
 
     # Writes a new line to the Error Log
@@ -77,6 +79,7 @@ class Logging:
             StringOperations.extendString(message, Logging.__spacer, Logging.__correction, 1) +
             Timer.LogDateTime(Timer.getTime()) + "\n")
         Logging.__closeErr()
+        v3.sendMessage(message)
         print(message)
 
     # Writes a new line to the System Log
@@ -87,6 +90,7 @@ class Logging:
             StringOperations.extendString(message, Logging.__spacer, Logging.__correction, 1) +
             Timer.LogDateTime(Timer.getTime()) + "\n")
         Logging.__closeSys()
+        v3.sendMessage(message)
         print(message)
 
     # Closes all files

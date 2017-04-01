@@ -12,7 +12,7 @@ global logMessage
 
 def sendMessage(message):
     global logMessage
-    logMessage = message;
+    logMessage = message
 
 def getMessage():
     return logMessage
