@@ -8,6 +8,8 @@ from Missions import Hydrophone
 
 from Utils import SerialCom
 from Utils import Parser
+from Vision import FrameGrab
+from Vision import AngleTest
 
 commands = {
     "depth": 'o',
@@ -125,10 +127,6 @@ def get_depth():
     # SerialCom.read0()
     # SerialCom.read1()
 
-
-# Align heading of the AUV
-def align():
-    print("align check")
 
 
 # Get the direction (angle, vector) of where to move

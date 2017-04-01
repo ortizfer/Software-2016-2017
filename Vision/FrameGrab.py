@@ -24,22 +24,42 @@ import cv2
 import numpy as np
 import time
 
-counter = 0
- 
-cap = cv2.VideoCapture(0)
-#while True = multiples fotos
-while counter < 2:
+def frontFrame():
+    counter = 0
+
+    cap = cv2.VideoCapture(0)
+    #while True = multiples fotos
+    while counter < 2:
     
-    ret, frame  = cap.read()
-    time.sleep(3)
-    cv2.imwrite("path%d.jpg" % counter,frame)
-    counter +=1
-    print counter
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-execfile('Path.py')    
+        ret, frame  = cap.read()
+        time.sleep(3)
+        cv2.imwrite("view.jpg",frame)
+        counter +=1
+        print (counter)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    #execfile('Path.py')
     
     
-cap.release()
-cv2.destroyAllWindows()  
+    cap.release()
+    cv2.destroyAllWindows()
+
+def floorFrame():
+    counter = 0
+
+    cap = cv2.VideoCapture(1)
+    # while True = multiples fotos
+    while counter < 2:
+
+        ret, frame = cap.read()
+        time.sleep(3)
+        cv2.imwrite("path.jpg", frame)
+        counter += 1
+        print(counter)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    #execfile('Path.py')
+
+    cap.release()
+    cv2.destroyAllWindows()
 

@@ -1,6 +1,8 @@
 # Line Mission
 from Missions import Movement
-from Utils import Log
+from Utils import Log, SerialCom
+from Vision import FrameGrab, AngleTest
+
 
 
 # Start Line mission logic
@@ -11,17 +13,27 @@ def start():
 
     aligned = False
 
-    direction = Movement.get_direction()
-
     # Find the direction we want to go (obtain direction object)
-    while direction.angle == -1:
-        direction = Movement.get_direction()
+    #while direction.angle == -1:
+     #   direction = Movement.get_direction()
 
-    # Align AUV with direction
+    # Align AUV with line
     while not aligned:
         print("aligning with line")
         Log.Logging.logSys("Line.py: Aligning with line")
-        aligned = True
+        #Picture of floor
+        FrameGrab.floorFrame()
+        #Angle of path
+        Angle = AngleTest.sendPath()
+
+        # AUV is aligned if 10 > Angle > -10
+        if Angle > 10 or Angle < -10:
+            # Angle is valid for alignment if is under 360 degree
+            if not Angle > 360:
+                print("Aligning")
+                #SerialCom.writeMSPFRONT(Angle)
+        else :
+            aligned = True
 
     # Move in aligned direction 40%
     if aligned:
