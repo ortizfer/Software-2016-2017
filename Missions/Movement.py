@@ -41,6 +41,7 @@ def depth(extent):
     time.sleep(0.5)
     feedback = SerialCom.readMSPUP()
 
+# Align the AUV with the path.
 def align(Angle) :
     print("Alignment")
     feedback = 'i'
