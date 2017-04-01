@@ -10,3 +10,6 @@ Ang_Path = 0.0
 def receive(ang):
     Ang_Path = ang
     print Ang_Path
+
+def sendPath():
+    return Ang_Path
