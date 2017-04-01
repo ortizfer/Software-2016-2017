@@ -113,7 +113,7 @@ def do_magic(seconds):
 
 
 # Stop AUV
-def stop(seconds):
+def stop():
     print("stopping")
     feedback = 'i'
     while feedback != 'f':
@@ -121,9 +121,7 @@ def stop(seconds):
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
 
-    SerialCom.writeMSPFRONT(seconds)
-    time.sleep(0.5)
-    feedback = SerialCom.readMSPFRONT()
+
 
 
 # Get depth from the pressure sensor
