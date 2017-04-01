@@ -26,7 +26,7 @@ class Logging:
     __currDate = Timer.getTime()
 
     # Amount of characters per log entry, excluding timestamp
-    __correction = 25
+    __correction = 20
 
     # Character used as spacer in log entries
     __spacer = '.'
