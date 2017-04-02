@@ -181,6 +181,7 @@ def moveLeft(yaw):
 def moveRight(yaw):
     return yaw + 10;
 
+def rotate():
 
 """
 VERSION CONTROL:
