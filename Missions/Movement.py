@@ -149,10 +149,6 @@ def listen():
     return Hydrophone.listen()
 
 
-# Checks if the sub is submerged
-def submerge_check():  # assuming get_depth returns bar and not feet
-    return get_depth() > 9000
-
 # Return x or y axis position
 def getAngle(axis):
     if(axis == "yaw"): # x axis
@@ -162,10 +158,6 @@ def getAngle(axis):
     if (axis == "pitch"): # y axis
         print("pitch")
         return 0
-    return 0
-
-# Distance from buoy
-def getDistance():
     return 0
 
 #Align commands with picture data
@@ -182,6 +174,7 @@ def moveRight(yaw):
     return yaw + 10;
 
 def rotate():
+    print("")
 
 """
 VERSION CONTROL:

@@ -1,5 +1,6 @@
 # Buoy Mission
-from Missions import Movement
+from Missions import Movement, Align, Searching
+from Vision import FrameGrab
 
 '''
     The Buoy mission commences by  searching for  buoy's. The
@@ -10,23 +11,50 @@ from Missions import Movement
     them to begin searching for the next orange line marker.
 '''
 
-# noinspection PyPep8Naming
-# ^^^ Suppresses spelling warnings on camel-cased  variables.
-
-
+x = 0
+y = 0
+percentage = 70
+near = False
 def start():
-    _maxrangex= 600
+    _maxrangex= 630
     _maxrangey= 400
-
-    redBuoy = True
-
-    direction = Movement.get_direction()
-
-    aligned = False
-    # Starting Buoy mission
     print("Starting Buoy mission")
 
-    while direction.angle == 0:
+    while not near:
+        position()
+        while not isAligned():
+            Align.start()
+
+        Movement.forward(2)
+
+
+    Movement.forward(4)
+
+def position():
+    FrameGrab.frontFrame()
+    #add bouy detection findBouy( bool, bool,bool)
+    direction = Movement.get_direction()
+    x = direction.x
+    y = direction.y
+
+def isAligned():
+    if x == -1 or y == -1:
+        Searching.start()
+    if x < 265 or x > 365:
+        return False
+
+    if y < 150 or y > 250:
+        return False
+    if percentage >= 70:
+        near = True
+    else:
+        return True
+
+    print("Exiting Buoy mission")
+
+
+"""
+    while direction.x > 365 or direction.x < 265:
         direction = Movement.get_direction()
 
     while not aligned:
@@ -64,8 +92,8 @@ def start():
 
 # Exit algorithm
     Movement.forward(5)
+"""
 
-    print("Exiting Buoy mission")
 
 
 """

@@ -1,16 +1,16 @@
 # Object class for the direction of a point
 class Direction(object):
-    angle = -1
-    vector = -1
+    x = -1
+    y = -1
 
     # The class constructor
-    def __init__(self, angle, vector):
-        self.angle = angle
-        self.vector = vector
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 
-def make_direction(angle, vector):
-    direction = Direction(angle, vector)
+def make_direction(x, y):
+    direction = Direction(x, y)
     return direction
 
 """
