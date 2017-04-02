@@ -11,17 +11,19 @@ def Search():
 
     while counter < 2:
 
-        Movement.right()  # Gira hacia la derecha y toma foto para buscar alguna boya.
+        Movement.align(45)  # Gira hacia la derecha y toma foto para buscar alguna boya.
         FrameGrab.frontFrame()# Toma foto de Vision
 
         if (AngleTest.sendX()>0): #Identificó un objeto, sigue corriendo el codigo.
             return 0
 
-        Movement.left() #Si no identifica objeto hacia la derecha, rota hacia la izquierda y repite el proceso.
+        Movement.align(-90) #Si no identifica objeto hacia la derecha, rota hacia la izquierda y repite el proceso.
         FrameGrab.frontFrame()
 
         if (AngleTest.sendX()>0):
             return 0
+
+        Movement.align(45) # Regresa al punto inicial
 
         Movement.backward(2) # Retrocede dos segundos y entra otra vez al loop hasta que se cumpla las condiciones.
         counter= counter +1 # De no encontrar boya vuelve a entrar al while hasta 2 veces.
