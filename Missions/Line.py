@@ -37,7 +37,7 @@ def start():
 
     # Move in aligned direction 40%
     if aligned:
-        Movement.forward(10)
+        Movement.forward(9)
 
     print("Exiting Line")
     Log.Logging.logSys("Line.py: Exiting Line")

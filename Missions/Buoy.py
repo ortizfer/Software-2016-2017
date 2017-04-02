@@ -15,8 +15,8 @@ from Missions import Movement
 
 
 def start():
-    _maxrangex= 500
-    _maxrangey= 300
+    _maxrangex= 600
+    _maxrangey= 400
 
     redBuoy = True
 
