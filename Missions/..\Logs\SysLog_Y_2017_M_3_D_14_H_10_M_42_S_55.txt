@@ -1,0 +1,16 @@
+..\Logs\SysLog_Y_2017_M_3_D_14_H_10_M_42_S_55.txt
+: 14/03/2017_10:42:55
+Main.py: starting Process: 14/03/2017_10:42:55
+Gate1.py: Starting Gate1 mission: 14/03/2017_10:42:55
+Gate1.py: exiting Gate1: 14/03/2017_10:43:20
+Line.py: Starting Line mission: 14/03/2017_10:43:20
+Line.py: Aligning with line: 14/03/2017_10:43:20
+Line.py: Exiting Line: 14/03/2017_10:43:30
+Line.py: Starting Line mission: 14/03/2017_10:43:30
+Line.py: Aligning with line: 14/03/2017_10:43:30
+Line.py: Exiting Line: 14/03/2017_10:43:40
+Gate2.py: Starting Gate2 mission: 14/03/2017_10:43:40
+Gate2.py: Searching for gate: 14/03/2017_10:43:40
+Gate2.py: Aligning with gate: 14/03/2017_10:43:40
+Gate2.py: Exiting Gate2 mission: 14/03/2017_10:43:54
+Main.py: Finished: 14/03/2017_10:43:54

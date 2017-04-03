@@ -10,9 +10,11 @@ Ang_Path = 0.0
 Ang_Center = 0.0
 CenterPathX = 0
 CenterPathY = 0
+CenterBuoyX = 0
+CenterBuoyY = 0
 def receive(ang):
     Ang_Path = ang
-    print Ang_Path
+    print(Ang_Path)
 
 def recCenterAng(angle):
     Ang_Center = angle
@@ -23,14 +25,26 @@ def sendPath():
 def sendCenter():
     return Ang_Center
 
-def centerX(xAxis):
+def centerPathX(xAxis):
     CenterPathX = xAxis
 
-def centerY(yAxis):
+def centerBuoyY(yAxis):
+    CenterBuoyY = yAxis
+
+def centerBuoyX(xAxis):
+    CenterBuoyX = xAxis
+
+def centerPathY(yAxis):
     CenterPathY = yAxis
 
-def sendX():
+def sendPathX():
     return CenterPathX
 
-def sendY():
+def sendPathY():
     return CenterPathY
+
+def sendBuoyX():
+    return CenterBuoyX
+
+def sendBuoyY():
+    return CenterBuoyY
