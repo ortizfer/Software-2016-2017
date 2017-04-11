@@ -1,29 +1,34 @@
 from Missions import Movement
+from Vision import AngleTest,FrameGrab
 
-def start(yaw,pitch):
-    x = yaw #Movement.getAngle("yaw");
-    y = pitch #Movement.getAngle("pitch");
-    distance = Movement.getDistance();
-    centered = False;
+x = 0
+y = 0
+def start():
+    position()
+    while not centered():
+        if(y >= 200):
+            Movement.depth("&d", Movement.get_depth() - 1)
+        elif(y <= 100):
+            Movement.depth("&d", Movement.get_depth() + 1)
+        if(x >= 300):
+            Movement.align(15)
+        elif (x <= 200) :
+            Movement.align(-15)
+        FrameGrab.frontFrame()
+        position()
 
-    while(centered != True) :
-        if(x > -50 and x < 50 ) :
-            if(y > -50 and y < 50 ) :
-                centered = True
-        if(y >= 50):
-            print()
-            y = Movement.moveDown(y);
-        elif(y <= -50):
-            print()
-            y = Movement.moveUp(y);
-        if(x >= 50):
-            print()
-            x = Movement.moveLeft(x)
-        elif (x <= -50) :
-            print()
-            x = Movement.moveRight(x)
-        print("x = {}".format(x));
-        print("y = {}".format(y));
+def position():
+    x = AngleTest.sendX()
+    y = AngleTest.sendX()
+
+def centered():
+    if x < 200 or x > 300:
+        return False
+    if y < 100 or y > 200:
+        return False
+    else:
+        return True
+
 
 
 """
