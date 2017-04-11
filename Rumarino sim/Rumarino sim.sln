@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rumarino sim.Plugins", "Rumarino sim.Plugins.csproj", "{44A30C72-CAA3-61E1-8198-832B550834A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rumarino sim", "Rumarino sim.csproj", "{8A05C109-0293-5C08-5A18-97F6A8FABF5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rumarino sim.Editor.Plugins", "Rumarino sim.Editor.Plugins.csproj", "{AD9D7C2B-44A7-C5AA-2D6C-6732D83CAE0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rumarino sim.Editor", "Rumarino sim.Editor.csproj", "{A49890BD-E3CA-D15E-962B-C948BF17B133}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44A30C72-CAA3-61E1-8198-832B550834A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A30C72-CAA3-61E1-8198-832B550834A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A30C72-CAA3-61E1-8198-832B550834A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A30C72-CAA3-61E1-8198-832B550834A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A05C109-0293-5C08-5A18-97F6A8FABF5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A05C109-0293-5C08-5A18-97F6A8FABF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A05C109-0293-5C08-5A18-97F6A8FABF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A05C109-0293-5C08-5A18-97F6A8FABF5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9D7C2B-44A7-C5AA-2D6C-6732D83CAE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9D7C2B-44A7-C5AA-2D6C-6732D83CAE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9D7C2B-44A7-C5AA-2D6C-6732D83CAE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9D7C2B-44A7-C5AA-2D6C-6732D83CAE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49890BD-E3CA-D15E-962B-C948BF17B133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49890BD-E3CA-D15E-962B-C948BF17B133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49890BD-E3CA-D15E-962B-C948BF17B133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49890BD-E3CA-D15E-962B-C948BF17B133}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
