@@ -5,18 +5,26 @@ from Missions import Direction
 
 from Missions import Hydrophone
 
-
 from Utils import SerialCom
 from Utils import Parser
 from Vision import FrameGrab
 from Vision import AngleTest
 
 commands = {
-    "depth": 'o',
-    "alignment": 'a',
-    "exit": 'x',
+    "depth": 'os',
+    "alignment": 'as',
+    "exitA": 'ax',
+    "exitD": 'ox',
     "forward": 'f',
     "backward": 'b',
+    "startA": 'an',
+    "startD": 'on',
+    "gainA": 'ag',
+    "gainD": 'og',
+    "set": 'am',
+    "forT": 'tf',
+    "AlT": 'tg',
+    "genT": 'th',
     "HCw": 'w',
     "HCa": 'a',
     "HCs": 's',
@@ -25,7 +33,40 @@ commands = {
     "printScript": 'y'
 }
 
+"""
+*****************************************************************************
+DICTIONARY:
+Align:
+j- enciende el output continuo
+k- apaga el output
+an - prende controlador - DONE
+ax - apaga el controlador  - DONE
+am - setpoint actual (set to actual value)  - DONE
+as(X) - setpoint neg izq pos derecha 1-9 q-y(y=60)  - DONE
+ag(X) - 0-9 gain - DONE
+ad - cambia la polaridad de los motores 
+tf(X) - 0-9 treshhold de desalineacion en forward  - DONE
+tg(X) - 0-9 grados para salir del align forward (grados de error)- DONE
+th - treahhold comotal del align controler - DONE
+f(T) - forward por T tiempo  - DONE
+b(T) -  backwards por T tiempo  - DONE
 
+Depth:
+j- enciende el output continuo
+k- apaga output
+on - prende el controlador  - DONE
+ox - apaga el controlador  - DONE
+od - cambia el bias 1 vez 14.5 2 veces 29.5 bias
+os(X) - 0-9 profundidad en pies q-11 w-12 etc.  - DONE
+og(X) - 0-9 ganancia  - DONE
+***************************************************************************** 
+"""
+
+"""
+*****************************************************************************
+Controlador de Profundidad
+*****************************************************************************
+"""
 
 
 # Submerge the AUV to the desired depth
@@ -33,45 +74,86 @@ def depth(extent):
     print("submerging to: " + extent)
     feedback = 'i'
     while feedback != 'f':
-        SerialCom.writeMSPUP(commands["depth"])
+        SerialCom.writeMSPUP(commands["depth"] + extent + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPUP())
 
-    SerialCom.writeMSPUP(extent)
-    time.sleep(0.5)
-    feedback = SerialCom.readMSPUP()
 
-# Align the AUV with the path.
-def align(Angle) :
-    print("Alignment")
+# Stop Depth
+def stopD():
+    print("stopping depth controller")
     feedback = 'i'
     while feedback != 'f':
-        SerialCom.writeMSPUPFRONT(commands["aligment"])
+        SerialCom.writeMSPUP(commands["exitD"] + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.writeMSPUP())
+
+
+# Start Depth
+def startD():
+    print("starting depth controller")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPUP(commands["startD"] + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.writeMSPUP())
+
+
+def gainD(value):
+    print("new depth gain: " + value)
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPUP(commands["gainD"] + value + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.writeMSPUP())
+
+
+"""
+******************************************************************************
+Controlador de Align
+******************************************************************************
+"""
+
+
+# Start align controller
+def startA():
+    print("Starting Align Controller")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands["startA"] + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
 
-    SerialCom.writeMSPFRONT(Angle)
-    time.sleep(0.5)
-    feedback = SerialCom.readMSPFRONT()
+
+# Gain of the Align
+
+def gainA(value):
+    print("Changing Align Gain: " + value)
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands["gainA"] + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+
+
+# Align the AUV with the path.
+def align(Angle):
+    print("Alignment")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPUPFRONT(commands["alignment"] + Angle + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+
 
 # Move forward at a base 40% speed
 def forward(seconds):
     print("moving at: 40%")
     feedback = 'i'
     while feedback != 'f':
-        SerialCom.writeMSPFRONT(commands["forward"])
+        SerialCom.writeMSPFRONT(commands["forward"] + seconds + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPFRONT())
-    SerialCom.writeMSPFRONT(seconds)
-    time.sleep(0.5)
-    feedback = SerialCom.readMSPFRONT()
-'''
-    count = 0
-    while count < seconds:
-        time.sleep(1)
-        align()
-        count += 1
-'''
 
 
 # Move backward at a base 40% speed
@@ -79,19 +161,47 @@ def backward(seconds):
     print("Backing up at: 40%")
     feedback = 'i'
     while feedback != 'f':
-        SerialCom.writeMSPFRONT(commands ['backwards'])
+        SerialCom.writeMSPFRONT(commands["backwards"] + seconds + '/n')
         time.sleep(0.5)
-        feedback =Parser.p_slice(SerialCom.readMSPFRONT())
-    SerialCom.writeMSPFRONT(seconds)
-    time.sleep(0.5)
-    feedback = SerialCom.readMSPFRONT()
-'''
-    count = 0
-    while count < seconds:
-        time.sleep(1)
-        align()
-        count += 1
-'''
+        feedback = Parser.p_slice(SerialCom.readMSPFRONT())
+
+
+# Stop ALign
+def stopA():
+    print("stopping")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands["exitA"] + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
+
+
+def setPoint():
+    print("set new point")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands["set"] + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
+
+
+def treshA():
+    print("Setting Align Tresholds")
+    feedback = 'i'
+    while feedback != 'f':
+        SerialCom.writeMSPFRONT(commands["forT"] + '' + '/n')
+        time.sleep(0.5)
+        SerialCom.writeMSPFRONT(commands["AlT"] + '' + '/n')
+        time.sleep(0.5)
+        SerialCom.writeMSPFRONT(commands["genT"] + '' + '/n')
+        time.sleep(0.5)
+        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+
+
+"""
+****************************************************************************
+"""
+
 
 # Rotates the entered angles COUNTER-CLOCKWISE
 def left(angle):
@@ -112,24 +222,11 @@ def do_magic(seconds):
     right(180)
 
 
-# Stop AUV
-def stop():
-    print("stopping")
-    feedback = 'i'
-    while feedback != 'f':
-        SerialCom.writeMSPFRONT(commands['exit'])
-        time.sleep(0.5)
-        feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
-
-
-
-
 # Get depth from the pressure sensor
 def get_depth():
     return 4.0
     # SerialCom.read0()
     # SerialCom.read1()
-
 
 
 # Get the direction (angle, vector) of where to move
@@ -151,33 +248,42 @@ def listen():
 
 # Return x or y axis position
 def getAngle(axis):
-    if(axis == "yaw"): # x axis
+    if (axis == "yaw"):  # x axis
         print("yaw")
         return 0
 
-    if (axis == "pitch"): # y axis
+    if (axis == "pitch"):  # y axis
         print("pitch")
         return 0
     return 0
 
-#Align commands with picture data
+
+# Align commands with picture data
 def moveUp(pitch):
     return pitch + 10;
+
 
 def moveDown(pitch):
     return pitch - 10;
 
+
 def moveLeft(yaw):
     return yaw - 10;
+
 
 def moveRight(yaw):
     return yaw + 10;
 
+
 def rotate():
     print("")
 
+
 """
 VERSION CONTROL:
+12 - Fernando / Tahiri 5/5/2017 3:37 PM
+Fixed and added all controller functions
+
 11 - Juan G.Lastra and Estaban Lopez 1/04/2017 6:10 P.M
 Alterated the forward, badkward and stop functions and eliminated forward a and backward a.
 
