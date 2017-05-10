@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+27- Juan G. Lastra Febles 10/05/2017 3:01 PM
+Documented the movement code
+
 26 -Juan G.Lastra and Estaban Lopez 1/04/2017 6:10 P.M
 Alterated the forward, badkward and stop functions and eliminated forward a and backward a.
 

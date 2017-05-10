@@ -10,6 +10,24 @@ from Utils import Parser
 from Vision import FrameGrab
 from Vision import AngleTest
 
+'''
+Movement Mission Logic. Provides the functionality of the movement of the AUV (Autonomous Underwater Vehicle) with
+different movements that are related to Depth and Align.
+
+In the Depth control, it provides in how much depth is desired, how to stop is submerge and how to obtain new values for
+the submarine to change in feet its depth in the water.
+
+In the Align control, it provides how to start the Align process, in how to control the speed that is in 40% of power in
+forward and backward movements. How to stop the Align process, set new points of directions for the submarine, gain new
+values to Align and to converge the sensor errors using threshold.
+
+Other features in the code is to rotate in the angles received for the submarine in Counter-Clockwise and Clockwise.
+By using the picture taken by the submarine it can move or rotate to Align.
+
+'''
+
+
+
 commands = {
     "depth": 'os',
     "alignment": 'as',
@@ -184,7 +202,7 @@ def setPoint():
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
 
-
+# To converge the error of the sensor
 def treshA():
     print("Setting Align Tresholds")
     feedback = 'i'
@@ -281,6 +299,9 @@ def rotate():
 
 """
 VERSION CONTROL:
+13- Juan G. Lastra 10/05/2017  3:01 PM
+Documented the code
+
 12 - Fernando / Tahiri 5/5/2017 3:37 PM
 Fixed and added all controller functions
 
