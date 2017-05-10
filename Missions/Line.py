@@ -2,9 +2,19 @@
 from Missions import Movement
 from Utils import Log, SerialCom
 from Vision import FrameGrab, AngleTest
+'''
+Line Mission Logic. The file aims to align the AUV to the direction of the mission.
+'''
 
-
-
+'''
+************************************************************************************************************************
+Dictionary:
+--Function--
+start(): essentially the main function of the file. Completes the line mission by aligning with the line.
+    parameter: void
+    return: void
+************************************************************************************************************************
+'''
 # Start Line mission logic
 def start():
 
@@ -45,6 +55,9 @@ def start():
 
 """
 VERSION CONTROL:
+5- Juan G. Lastra Febles 10/05/2017 7:13 PM
+Documented the code
+
 4-  Carlos J. Figueroa 01/03/2017 11:18pm
 Added calls to System Log.
 

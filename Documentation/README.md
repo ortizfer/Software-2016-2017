@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+31- Juan G. Lastra Febles 10/05/2017 7:18 PM
+Documented the Line.py and the Searching.py
+
 30- Juan G. Lastra Febles and Carlos Figueroa 10/05/2017 7:02 PM
 Documented the Cleanup and moved the file to Utils. Documented the Buoy.py, documented the Directon.py, documented the
 Gate1.py, documented Gate2.py, documented Island.py

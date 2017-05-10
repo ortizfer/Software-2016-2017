@@ -2,7 +2,22 @@
 from Missions import Movement
 from Vision import FrameGrab
 from Vision import AngleTest
+'''
+Searching Mission Logic. The file aims to obtain images to located the buoys in the water.
+'''
 
+'''
+************************************************************************************************************************
+Dictionary:
+-- Functions--
+start(): essentially the main function of the file. Completes the Searching mission
+    parameter: void
+    return: void
+Search(): To locate by images the buoy desired
+    parameter: void
+    return: void
+************************************************************************************************************************
+'''
 def start():
 
     object = 0;
@@ -34,6 +49,8 @@ def Search():
 
 """
 VERSION CONTROL:
+5- Juan G. Lastra Febles 10/05/2017 7:17 PM
+Documented the code
 
 4- Sachy Romero Rosado 02/04/2017 1:55am
 Called Movement.backward to go back 2 seconds after each iteration.
