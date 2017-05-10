@@ -1,3 +1,6 @@
+
+# INCOMPLETE, requires the hydrophone hardware to be finished #
+
 '''
 Hydrophone Mission logic. functions that listen to the hydrophone and create the object directon and returns it to
 movement.

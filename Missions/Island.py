@@ -1,5 +1,15 @@
 # Island Mission
 from Missions import Movement
+'''
+Island Mission Logic. This files aims to have the AUV locate a pinger underneath an octagon and surface inside of it.
+This is the last mission to be executed.
+'''
+
+'''
+start(): essentially the main function, completes the entire Island mission within this function
+    parameter: void
+    return: void
+'''
 
 def start():
     print()
@@ -55,7 +65,9 @@ def start():
 
 """
 VERSION CONTROL:
-1
+6- Juan G. Lastra Febles and Carlos Figueroa 10/05/2017 7:00 PM
+Added documentation and dictionary for the code
+
 5- Esteban Lopez 15/03/17
 definicion de x y, arreglar pal de cosas de movement
 

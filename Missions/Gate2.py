@@ -1,7 +1,21 @@
 # Gate 2 Mission
 from Missions import Movement
 from Utils import Log
+'''
+Gate 2 Mission Logic. This file aims to complete Gate2 mission where te AUV must pass through a gate and
+perform a stunt.
+'''
 
+'''
+************************************************************************************************************************
+Dictionary:
+--Functions--
+start(): essentially the main function of the file, passes the gate obstacle by moving forward and performing a stunt.
+    parameter: void
+    return: void
+
+************************************************************************************************************************
+'''
 
 # Start Gate2 mission logic
 def start():
@@ -32,6 +46,9 @@ def start():
 
 """
 VERSION CONTROL:
+4- Juan G. Lastra Febles and Carlos Figueroa 10/05/2017 6:50 PM
+Edited the documentation
+
 3- Carlos J. Figueroa 01/03/2017 11:23pm
 Added calls to System Log.
 

@@ -11,6 +11,29 @@ from Vision import FrameGrab
     them to begin searching for the next orange line marker.
 '''
 
+'''
+************************************************************************************************************************
+Dictionary:
+--Variables--
+x: global variable denoting a position
+y: global variable denoting a position
+percentage: PENDING
+near: global variable denoting whether a boolean is near or not
+
+--Functions--
+start(): essentially the main function, orders all other functions so the AUV may complete the buoy mission.
+    parameter: void
+    return: void
+
+position(): Modifies the global variables x and y to current position
+    parameter: void
+    return: void
+
+isAligned(): it provides whether or not is in the right parameters
+    parameter: void
+    return: boolean, whether or not it is align
+************************************************************************************************************************
+'''
 x = 0
 y = 0
 percentage = 70
@@ -99,6 +122,9 @@ def isAligned():
 
 """
 VERSION CONTROL:
+14- Juan G. Lastra Febles and Carlos Figueroa 10/05/2017 6:28 PM
+Added documentation and dictionary for the code
+
 13- Sachy Romero 27/02/2017 12:28pm
 Added Maxrange X and Maxrange Y
 

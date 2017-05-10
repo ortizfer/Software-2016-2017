@@ -3,8 +3,20 @@
 import time
 from Missions import Movement
 from Utils import Log
+'''
+Gate1 Mission Logic. This file aims to complete the Gate1 mission which is to pass the first gate of the competition
+'''
 
+'''
+************************************************************************************************************************
+Dictionary:
+--Function--
+start(): essentially the main function of the file. Completes the Gate1 mission by moving forward.
+    parameter: void
+    return: void
 
+************************************************************************************************************************
+'''
 # start mission logic
 def start():
 
@@ -23,6 +35,8 @@ def start():
 
 """
 VERSION CONTROL:
+7- Juan G. Lastra Febles and Carlos Figueroa 10/05/2017 6:46 PM
+Edited the documentatio
 
 6- Sachy Romero 02/04/2017 1:32
 Changed the feet on deph from 4 to 6 feet
