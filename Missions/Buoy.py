@@ -27,15 +27,16 @@ def start():
 
         Movement.forward(2)
 
-
     Movement.forward(4)
+
 
 def position():
     FrameGrab.frontFrame()
-    #add bouy detection findBouy( bool, bool,bool)
+    # add bouy detection findBouy( bool, bool,bool)
     direction = Movement.get_direction()
     x = direction.x
     y = direction.y
+
 
 def isAligned():
     if x == -1 or y == -1:

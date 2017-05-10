@@ -2,6 +2,9 @@
 Code for Proteus 2.0 Missions
 
 """
+28- Juan G. Lastra Febles, Carlos Figueroa and Jose Montes 10/05/2017  3:58 pm
+Commented on the Align code and Hydrophone
+
 27- Juan G. Lastra Febles 10/05/2017 3:01 PM
 Documented the movement code
 

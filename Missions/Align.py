@@ -1,6 +1,10 @@
 from Missions import Movement
 from Vision import AngleTest,FrameGrab
 
+''''
+This code is obsolete, needs update since is mixing with depth and align
+'''
+
 x = 0
 y = 0
 def start():
@@ -19,7 +23,7 @@ def start():
 
 def position():
     x = AngleTest.sendX()
-    y = AngleTest.sendX()
+    y = AngleTest.sendY()
 
 def centered():
     if x < 200 or x > 300:
@@ -33,6 +37,9 @@ def centered():
 
 """
 VERSION CONTROL:
+3- Juan G. Lastra Febles, Carlos Figueroa and Jose Montes  3:48 PM
+commented in the code
+
 2- Felix Gonzalez 8/03/2017 1:23pm
 Tested functionality and improved time of execution.
 
