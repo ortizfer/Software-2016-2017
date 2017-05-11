@@ -33,7 +33,7 @@ def frontFrame():
     
         ret, frame  = cap.read()
         time.sleep(3)
-        cv2.imwrite("view.jpg",frame)
+        cv2.imwrite("view%d.jpg",frame)
         counter +=1
         print (counter)
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -53,7 +53,7 @@ def floorFrame():
 
         ret, frame = cap.read()
         time.sleep(3)
-        cv2.imwrite("path.jpg", frame)
+        cv2.imwrite("path%d.jpg", frame)
         counter += 1
         print(counter)
         if cv2.waitKey(1) & 0xFF == ord('q'):

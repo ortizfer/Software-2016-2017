@@ -12,6 +12,7 @@ CenterPathX = 0
 CenterPathY = 0
 CenterBuoyX = 0
 CenterBuoyY = 0
+BuoyDist = 0
 def receive(ang):
     Ang_Path = ang
     print(Ang_Path)
@@ -33,6 +34,12 @@ def centerBuoyY(yAxis):
 
 def centerBuoyX(xAxis):
     CenterBuoyX = xAxis
+
+def distanceBuoy(dist):
+    BuoyDist = dist
+
+def sendDistanceBuoy():
+    return BuoyDist
 
 def centerPathY(yAxis):
     CenterPathY = yAxis
