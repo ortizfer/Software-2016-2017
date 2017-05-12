@@ -24,7 +24,7 @@ def startPathPCA():
     ID =0
     count =0
     
-    pathIm = cv2.imread("SUPERTEST.jpg")
+    pathIm = cv2.imread("path1.jpg")
     pathIm = cv2.resize(pathIm, (630,400))
     pathIm2 = pathIm.copy()
     Filt_path = cv2.bilateralFilter(pathIm,7,900,900)
@@ -41,6 +41,8 @@ def startPathPCA():
     'Check if contours were found'
     if len(contours) ==0:
         print "Adjust canny"
+        message.foundP(-1)
+        return message
     'Look for a rectangle'
     for contour in contours:
         approxV = cv2.approxPolyDP(contour, 0.02*cv2.arcLength(contour,True),True)
@@ -48,7 +50,9 @@ def startPathPCA():
             contour_List1.append(contour)
     'Check if rectangle were found'        
     if len(contour_List1) == 0:
-        print "No rectangle found" 
+        print "No rectangle found"
+        message.foundP(-1)
+        return message
        
     if not len(contour_List1) == 0:
         for cnt in contour_List1:
