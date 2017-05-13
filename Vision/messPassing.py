@@ -14,11 +14,8 @@ class messPassing:
         centerPathY = 0
         centerBuoyX = 0
         centerBuoyY = 0
-        foundPath = 1
-
-    def foundP(self,found):
-        self.foundPath = found
-
+        distanceBuoy = 0
+        
     def angle(self,Angle):
         self.anglePath = Angle
         
@@ -48,6 +45,7 @@ class messPassing:
     
     def impBuoyY(self):
         return self.centerBuoyY
-
-    def impFound(self):
-        return self.foundPath
+    
+    def impBuoyDistance(self):
+        return self.distanceBuoy
+    
