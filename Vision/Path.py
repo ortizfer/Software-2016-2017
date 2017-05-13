@@ -6,7 +6,7 @@ Created on Fri Mar 17 10:16:46 2017
 @author: Edwin
 """ #q2 = angle-90
     #q1 = 90 - angle
-""" Tomar foto de la boya a la distancia mayor para determinar el area minima del rect
+"""# Tomar foto de la boya a la distancia mayor para determinar el area minima del rect
 que estoy buscando"""
 import cv2
 import numpy as np
