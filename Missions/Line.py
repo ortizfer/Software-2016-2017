@@ -1,7 +1,7 @@
 # Line Mission
 from Missions import Movement
 from Utils import Log
-from Vision import FrameGrab, messPassing, PathPCA2
+from Vision import FrameGrab, messPassing, PathPCA2, FrameGrabRT
 import time
 '''
 Line Mission Logic. The file aims to align the AUV to the direction of the mission.
@@ -17,13 +17,15 @@ start(): essentially the main function of the file. Completes the line mission b
 ************************************************************************************************************************
 '''
 # Start Line mission logic
+
+
 def start():
 
     print("Starting Line mission")
     Log.Logging.logSys("Line.py: Starting Line mission")
 
     aligned = False
-
+    FrameGrabRT.startLive()
     # Find the direction we want to go (obtain direction object)
     #while direction.angle == -1:
      #   direction = Movement.get_direction()

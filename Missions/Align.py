@@ -1,29 +1,35 @@
 from Missions import Movement
-from Vision import AngleTest,FrameGrab
+from Vision import messPassing,FrameGrab
 
 ''''
 This code is obsolete, needs update since is mixing with depth and align
 '''
-
+depth = 6
 x = 0
 y = 0
 def start():
     position()
     while not centered():
         if(y >= 200):
-            Movement.depth("&d", Movement.get_depth() - 1)
+            depth = depth - 1
+            Movement.depth(depth)
         elif(y <= 100):
-            Movement.depth("&d", Movement.get_depth() + 1)
+            depth = depth + 1
+            Movement.depth(depth)
         if(x >= 300):
             Movement.align(15)
         elif (x <= 200) :
             Movement.align(-15)
-        FrameGrab.frontFrame()
+
         position()
 
 def position():
-    x = AngleTest.sendX()
-    y = AngleTest.sendY()
+    FrameGrab.frontFrame()
+    # add bouy detection findBouy( bool, bool,bool)
+    boya = messPassing.messPassing()
+    boya = BoyasExoticas.start()
+    x = boya.impBuoyX()
+    y = boya.impBuoyY()
 
 def centered():
     if x < 200 or x > 300:

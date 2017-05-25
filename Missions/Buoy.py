@@ -1,6 +1,6 @@
 # Buoy Mission
-from Missions import Movement, Align, Searching
-from Vision import FrameGrab
+from Missions import Movement, Align
+from Vision import FrameGrab, messPassing, BoyasExoticas
 
 '''
     The Buoy mission commences by  searching for  buoy's. The
@@ -36,11 +36,13 @@ isAligned(): it provides whether or not is in the right parameters
 '''
 x = 0
 y = 0
-percentage = 70
+distance = 100
 near = False
+
+
 def start():
-    _maxrangex= 630
-    _maxrangey= 400
+    _maxrangex = 630
+    _maxrangey = 400
     print("Starting Buoy mission")
 
     while not near:
@@ -50,31 +52,81 @@ def start():
 
         Movement.forward(2)
 
-    Movement.forward(4)
+    Movement.forward(0)
+
+    """ Exit protocol """
+
+    # Go over buoys
+    Movement.depth(3)
+    Movement.forward(0)
+    Movement.depth(6)
+
+    # Turn accordinly back to center of buyos
+    if Align.getFirstTurn() < 0:
+        Movement.align(90)
+    else:
+        Movement.align(-90)
+
+    # Move toward middle of buoys
+    Movement.forward(0)
+
+    # Turn back facing gate 2
+    if Align.getFirstTurn() < 0:
+        Movement.align(-90)
+    else:
+        Movement.align(90)
 
 
 def position():
     FrameGrab.frontFrame()
     # add bouy detection findBouy( bool, bool,bool)
-    direction = Movement.get_direction()
-    x = direction.x
-    y = direction.y
+    boya = messPassing.messPassing()
+    boya = BoyasExoticas.start()
+    x = boya.impBuoyX()
+    y = boya.impBuoyY()
+    distance = boya.impDistance()
 
 
 def isAligned():
     if x == -1 or y == -1:
-        Searching.start()
+        Search()
     if x < 265 or x > 365:
         return False
 
     if y < 150 or y > 250:
         return False
-    if percentage >= 70:
+    if distance <= 3:
         near = True
     else:
         return True
 
     print("Exiting Buoy mission")
+
+
+def Search():
+    counter = 0
+
+    while counter < 2:
+
+        Movement.align(45)  # Gira hacia la derecha y toma foto para buscar alguna boya.
+        position()# Toma foto de Vision
+
+        if (x>0): #Identificó un objeto, sigue corriendo el codigo.
+            break
+
+        Movement.align(-90) #Si no identifica objeto hacia la derecha, rota hacia la izquierda y repite el proceso.
+        position()
+
+        if (x>0):
+            break
+
+        Movement.align(45) # Regresa al punto inicial
+
+        Movement.backward(2) # Retrocede dos segundos y entra otra vez al loop hasta que se cumpla las condiciones.
+        counter= counter +1 # De no encontrar boya vuelve a entrar al while hasta 2 veces.
+
+    Movement.depth('0')
+
 
 
 """
@@ -117,8 +169,6 @@ def isAligned():
 # Exit algorithm
     Movement.forward(5)
 """
-
-
 
 """
 VERSION CONTROL:

@@ -1,14 +1,10 @@
 # Class to control the movement of the AUV
 import time
 
-from Missions import Direction
-
 from Missions import Hydrophone
 
-from Utils import SerialCom
-from Utils import Parser
-from Vision import FrameGrab
-from Vision import AngleTest
+from Utils import SerialCom, Parser
+
 
 '''
 Movement Mission Logic. Provides the functionality of the movement of the AUV (Autonomous Underwater Vehicle) with
@@ -306,11 +302,6 @@ def get_depth():
     # SerialCom.read0()
     # SerialCom.read1()
 
-
-# Get the direction (angle, vector) of where to move
-def get_direction():
-    direction = Direction.make_direction(0, 0)
-    return direction
 
 
 # Function to touch the buoy
