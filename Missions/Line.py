@@ -1,7 +1,8 @@
 # Line Mission
 from Missions import Movement
-from Utils import Log, SerialCom
-from Vision import FrameGrab, AngleTest
+from Utils import Log
+from Vision import FrameGrab, messPassing, PathPCA2
+import time
 '''
 Line Mission Logic. The file aims to align the AUV to the direction of the mission.
 '''
@@ -34,16 +35,25 @@ def start():
         #Picture of floor
         FrameGrab.floorFrame()
         #Angle of path
-        Angle = AngleTest.sendPath()
+        message = messPassing.messPassing()
+        message = PathPCA2.startPathPCA()
+        found = message.impFound()
 
         # AUV is aligned if 10 > Angle > -10
-        if Angle > 10 or Angle < -10:
-            # Angle is valid for alignment if is under 360 degree
-            if not Angle > 360:
-                #print("Aligning")
-                Movement.align(Angle)
-        else :
-            aligned = True
+        print(message.impAngle())
+
+        while message.impAngle() > 10 or message.impAngle() < -10:
+            if message.impAngle() > 10:
+                Movement.align('-8')
+                time.sleep(2)
+
+            if message.impAngle() < -10:
+                Movement.align('8')
+                time.sleep(2)
+
+            FrameGrab.floorFrame()
+            message = PathPCA2.startPathPCA()
+        aligned = True
 
     # Move in aligned direction 40%
     if aligned:
@@ -55,6 +65,10 @@ def start():
 
 """
 VERSION CONTROL:
+
+6- Fernando Ortiz 25/5/2017 12:00 PM
+Updated Line code with vision logic
+
 5- Juan G. Lastra Febles 10/05/2017 7:13 PM
 Documented the code
 
