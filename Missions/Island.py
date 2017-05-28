@@ -12,6 +12,11 @@ start(): essentially the main function, completes the entire Island mission with
 '''
 
 def start():
+
+    Movement.align(10)
+    Movement.forward(9)
+    Movement.depth(0)
+    """
     print()
     infront= Movement.listen()
     aligned = False
@@ -61,7 +66,7 @@ def start():
         Movement.stop()
 
 
-
+"""
 
 """
 VERSION CONTROL:

@@ -24,7 +24,7 @@ def start():
     Log.Logging.logSys("Gate1.py: Starting Gate1 mission")
     # Submerge the AUV to 6 feet
     Movement.depth("6")
-    time.sleep(4)
+    time.sleep(1)
 
     # Full 40% forward
     Movement.forward(9)

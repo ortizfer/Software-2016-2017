@@ -1,2 +1,4 @@
 def p_slice(message):
-    return message[8]
+    #Entered A Valid Command
+    #Entered A Invalid Command
+    return message[10]

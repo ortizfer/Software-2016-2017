@@ -1,8 +1,6 @@
 # Class to control the movement of the AUV
 import time
 
-from Missions import Hydrophone
-
 from Utils import SerialCom, Parser
 
 
@@ -147,7 +145,7 @@ Controlador de Profundidad
 def depth(extent):
     print("submerging to: " + extent)
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPUP(commands["depth"] + extent + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPUP())
@@ -157,7 +155,7 @@ def depth(extent):
 def stopD():
     print("stopping depth controller")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPUP(commands["exitD"] + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPUP())
@@ -167,7 +165,7 @@ def stopD():
 def startD():
     print("starting depth controller")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPUP(commands["startD"] + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPUP())
@@ -176,7 +174,7 @@ def startD():
 def gainD(value):
     print("new depth gain: " + value)
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPUP(commands["gainD"] + value + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPUP())
@@ -193,10 +191,10 @@ Controlador de Align
 def startA():
     print("Starting Align Controller")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPFRONT(commands["startA"] + '/n')
         time.sleep(0.5)
-        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+        feedback = Parser.p_slice(SerialCom.readMSPFRONT())
 
 
 # Gain of the Align
@@ -204,27 +202,27 @@ def startA():
 def gainA(value):
     print("Changing Align Gain: " + value)
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPFRONT(commands["gainA"] + '/n')
         time.sleep(0.5)
-        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+        feedback = Parser.p_slice(SerialCom.readMSPFRONT())
 
 
 # Align the AUV with the path.
 def align(Angle):
     print("Alignment")
     feedback = 'i'
-    while feedback != 'f':
-        SerialCom.writeMSPUPFRONT(commands["alignment"] + Angle + '/n')
+    while feedback != 'v':
+        SerialCom.writeMSPFRONT(commands["alignment"] + Angle + '/n')
         time.sleep(0.5)
-        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+        feedback = Parser.p_slice(SerialCom.readMSPFRONT())
 
 
 # Move forward at a base 40% speed
 def forward(seconds):
     print("moving at: 40%")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPFRONT(commands["forward"] + seconds + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPFRONT())
@@ -234,7 +232,7 @@ def forward(seconds):
 def backward(seconds):
     print("Backing up at: 40%")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPFRONT(commands["backwards"] + seconds + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.readMSPFRONT())
@@ -244,7 +242,7 @@ def backward(seconds):
 def stopA():
     print("stopping")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPFRONT(commands["exitA"] + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
@@ -253,7 +251,7 @@ def stopA():
 def setPoint():
     print("set new point")
     feedback = 'i'
-    while feedback != 'f':
+    while feedback != 'v':
         SerialCom.writeMSPFRONT(commands["set"] + '/n')
         time.sleep(0.5)
         feedback = Parser.p_slice(SerialCom.writeMSPFRONT())
@@ -262,90 +260,20 @@ def setPoint():
 def treshA():
     print("Setting Align Tresholds")
     feedback = 'i'
-    while feedback != 'f':
-        SerialCom.writeMSPFRONT(commands["forT"] + '' + '/n')
+    while feedback != 'v':
+        SerialCom.writeMSPFRONT(commands["forT"] + '2' + '/n')
         time.sleep(0.5)
-        SerialCom.writeMSPFRONT(commands["AlT"] + '' + '/n')
+        SerialCom.writeMSPFRONT(commands["AlT"] + '2' + '/n')
         time.sleep(0.5)
-        SerialCom.writeMSPFRONT(commands["genT"] + '' + '/n')
+        SerialCom.writeMSPFRONT(commands["genT"] + '1' + '/n')
         time.sleep(0.5)
-        feedback = Parser.p_slice(SerialCom.readMSPUPFRONT())
+        feedback = Parser.p_slice(SerialCom.readMSPFRONT())
 
 
 """
 ****************************************************************************
 """
 
-
-# Rotates the entered angles COUNTER-CLOCKWISE
-def left(angle):
-    print("moving left " + str(angle) + " degrees")
-
-
-# Rotates the entered angles CLOCKWISE
-def right(angle):
-    print("moving right " + str(angle) + " degrees")
-
-
-# Original movement for Gate2 mission.
-# Currently moves in reverse for the specified time.
-def do_magic(seconds):
-    print("Doing a cool stunt")
-    left(180)
-    backward(seconds)
-    right(180)
-
-
-# Get depth from the pressure sensor
-def get_depth():
-    return 4.0
-    # SerialCom.read0()
-    # SerialCom.read1()
-
-
-
-# Function to touch the buoy
-def bop_it():
-    print("Touching the Buoy")
-
-
-# Listen the hydrophones
-def listen():
-    print("Listening for hydrophones")
-    return Hydrophone.listen()
-
-
-# Return x or y axis position
-def getAngle(axis):
-    if (axis == "yaw"):  # x axis
-        print("yaw")
-        return 0
-
-    if (axis == "pitch"):  # y axis
-        print("pitch")
-        return 0
-    return 0
-
-
-# Align commands with picture data
-def moveUp(pitch):
-    return pitch + 10;
-
-
-def moveDown(pitch):
-    return pitch - 10;
-
-
-def moveLeft(yaw):
-    return yaw - 10;
-
-
-def moveRight(yaw):
-    return yaw + 10;
-
-
-def rotate():
-    print("")
 
 
 """

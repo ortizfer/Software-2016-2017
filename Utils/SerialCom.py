@@ -54,7 +54,7 @@ def readMSPUP():
 def writeMSPUP(command):
     ser0.write(command)
 
-
+"""
 def readDSPIC():
     return ser0.readLine()
 
@@ -74,7 +74,7 @@ def readIMU():
 
 def writeIMU(command):
     ser0.write(command)
-
+"""
 
 """
 VERSION CONTROL:

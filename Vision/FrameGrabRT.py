@@ -47,7 +47,7 @@ def startLive():
         #Look for a rectangle'
         for contour in contours:
             approxV = cv2.approxPolyDP(contour, 0.02*cv2.arcLength(contour,True),True)
-            if cv2.contourArea(contour) > 50:
+            if cv2.contourArea(contour) > 50:#if path is x big might need to adjust
 
                 if (len(approxV) >= 3 and len(approxV) <= 6 ):
     #

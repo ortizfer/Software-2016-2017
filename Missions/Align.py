@@ -7,6 +7,8 @@ This code is obsolete, needs update since is mixing with depth and align
 depth = 6
 x = 0
 y = 0
+count = 0
+fTurn = 0
 def start():
     position()
     while not centered():
@@ -18,8 +20,15 @@ def start():
             Movement.depth(depth)
         if(x >= 300):
             Movement.align(15)
+            if count == 0:
+                fTurn = 1
+                count = count + 1
+
         elif (x <= 200) :
             Movement.align(-15)
+            if count == 0:
+                fTurn = -1
+                count = count +1
 
         position()
 
@@ -39,6 +48,9 @@ def centered():
     else:
         return True
 
+
+def getFirstTurn():
+    return fTurn
 
 
 """

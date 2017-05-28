@@ -1,6 +1,4 @@
-from Missions import Gate1
-from Missions import Gate2
-from Missions import Line
+from Missions import Gate1, Gate2, Line, Buoy, Island
 from Utils import Log
 
 '''
@@ -28,12 +26,12 @@ Line.start()
 
 if firstRun:
     firstRun = False
-    #Buoy.start()
+    Buoy.start()
     Line.start()
 
 if not firstRun:
     Gate2.start()
-    #Island.start()
+    Island.start()
 
 print("Finished")
 Log.Logging.logSys("Main.py: Finished")

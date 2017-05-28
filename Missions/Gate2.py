@@ -38,7 +38,8 @@ def start():
     Movement.forward(10)
 
     # Do movement trick for gate
-    Movement.do_magic(4)
+    Movement.align(180)
+    Movement.backward(1)
 
     print("Exiting Gate2 mission")
     Log.Logging.logSys("Gate2.py: Exiting Gate2 mission")

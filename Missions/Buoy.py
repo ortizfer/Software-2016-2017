@@ -1,6 +1,7 @@
 # Buoy Mission
 from Missions import Movement, Align
 from Vision import FrameGrab, messPassing, BoyasExoticas
+import time
 
 '''
     The Buoy mission commences by  searching for  buoy's. The
@@ -52,7 +53,7 @@ def start():
 
         Movement.forward(2)
 
-    Movement.forward(0)
+    Movement.forward(0)#to substitute with new algorithm
 
     """ Exit protocol """
 
@@ -112,20 +113,26 @@ def Search():
         position()# Toma foto de Vision
 
         if (x>0): #Identificó un objeto, sigue corriendo el codigo.
-            break
+            return
 
         Movement.align(-90) #Si no identifica objeto hacia la derecha, rota hacia la izquierda y repite el proceso.
         position()
 
         if (x>0):
-            break
+            return
 
         Movement.align(45) # Regresa al punto inicial
 
         Movement.backward(2) # Retrocede dos segundos y entra otra vez al loop hasta que se cumpla las condiciones.
         counter= counter +1 # De no encontrar boya vuelve a entrar al while hasta 2 veces.
 
-    Movement.depth('0')
+    counter = 0
+    while counter <2:
+        Movement.align('180')
+        time.sleep(2)
+        Movement.align('180')
+        time.sleep(2)
+        counter = counter +1
 
 
 
